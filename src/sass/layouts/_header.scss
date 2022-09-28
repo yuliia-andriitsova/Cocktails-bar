@@ -40,7 +40,6 @@
       @include desktop {
         display: none;
       }
-
     }
   }
 
@@ -80,8 +79,6 @@
           gap: 32px;
           left: -14px;
         }
-
-
       }
     }
 
@@ -141,7 +138,6 @@
     }
 
     &--menu {
-
       @include tablet {
         display: block;
       }
@@ -175,7 +171,6 @@
     }
   }
 
-
   &__icon-menu--close {
     display: block;
     position: fixed;
@@ -197,7 +192,6 @@
     margin-left: 251px;
     display: flex;
     position: fixed;
-
 
     @include desktop {
       margin-right: 172px;
@@ -261,7 +255,6 @@
     background-color: inherit;
     height: 100%;
     width: 40px;
-
   }
 
   &__color-theme-box {
@@ -272,8 +265,6 @@
     }
 
     &--menu {
-
-
       @media screen and (max-width: 1279px) {
         position: absolute;
         top: 56px;
@@ -380,7 +371,7 @@
     z-index: 3;
     width: 210px;
     height: 96px;
-    border: 1px solid #FD5103;
+    border: 1px solid #fd5103;
     border-radius: 4px;
     left: 357px;
     top: 71px;
@@ -398,7 +389,6 @@
       left: 20px;
       top: 307px;
     }
-
 
     &__list {
       list-style: none;
@@ -425,7 +415,7 @@
 
       &:hover,
       &:focus {
-        background-color: #FD5103;
+        background-color: #fd5103;
         color: #ffffff;
       }
     }
