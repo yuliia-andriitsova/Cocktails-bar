@@ -58,8 +58,12 @@
     text-align: left;
     width: 93px;
     height: 84px;
-    overflow: scroll;
+
     margin: auto;
+
+    @include mobile {
+      overflow: scroll;
+    }
 
     @include tablet {
       display: flex;
@@ -69,6 +73,7 @@
       border: 1px solid transparent;
       width: 324px;
       height: 75px;
+      overflow: hidden;
     }
     @include desktop {
       width: 519px;
