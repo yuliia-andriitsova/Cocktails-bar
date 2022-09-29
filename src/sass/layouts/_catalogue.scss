@@ -195,11 +195,6 @@
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid #fd5103;
-  max-width: 479px;
-
-  @include tablet {
-    max-width: 335px;
-  }
 }
 
 .catalogue__list {
