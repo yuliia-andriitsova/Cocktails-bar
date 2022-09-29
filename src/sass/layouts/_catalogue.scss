@@ -204,10 +204,15 @@
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
   }
-  @include desktop {
+}
+
+.catalogue__list-favingr {
+  display: grid;
+
+  @include tablet {
     grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
   }
 }
 
