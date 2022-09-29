@@ -1,4 +1,5 @@
-import templateFunction from '../template/coctail-card.hbs';
+import cocktailCard from '../template/cocktail-card.hbs';
+import notFoundCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 
@@ -25,7 +26,15 @@ function getSearchCocktailByName(e) {
 async function getRenderingCocktailByName() {
   const r = await getClassApiData.getParsedApiData();
 
-  getRenderingApi(r);
+  if (r !== null) {
+    getRenderingApi(r);
+  } else {
+    refsGallery.cataloguePattern.innerHTML = '';
+    refsGallery.cataloguePattern.insertAdjacentHTML(
+      'beforeend',
+      notFoundCoctail()
+    );
+  }
 }
 
 async function getRenderingRandomCoctail() {
@@ -40,7 +49,7 @@ getRenderingRandomCoctail();
 function getRenderingApi(r) {
   const data = r
     .map(result => {
-      return templateFunction(result);
+      return cocktailCard(result);
     })
     .join('');
 
