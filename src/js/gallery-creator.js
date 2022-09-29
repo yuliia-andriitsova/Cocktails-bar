@@ -3,7 +3,7 @@ import { getApiData } from './rendering-catalogue';
 
 refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
-  cataloguePattern: document.querySelector('.catalogue-pattern'),
+  cataloguePattern: document.querySelector('.catalogue__list'),
 };
 
 const getClassApiData = new getApiData();
