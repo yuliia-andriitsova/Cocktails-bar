@@ -3,7 +3,7 @@ const refsFavorite = {
   favoriteBtn: document.querySelector('.header__nav-text--btn'),
 };
 
-refsFavorite.favoriteBtn.addEventListener('click', onFavoriteBtnClick);
+refsFavorite.favoriteBtn.addEventListener('mousemove', onFavoriteBtnClick);
 
 function onFavoriteBtnClick() {
   refsFavorite.favoriteMenu.classList.toggle('header__favorite-box--is-hidden');
