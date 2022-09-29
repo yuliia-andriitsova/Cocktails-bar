@@ -1,7 +1,7 @@
 import cocktailCard from '../template/cocktail-card.hbs';
 import notFoundCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
-import { checkingScreenWidth } from './cheking-screen-width';
+import { checkingScreenWidth } from './checking-screen-width';
 
 refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
