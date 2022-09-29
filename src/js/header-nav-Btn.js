@@ -8,8 +8,6 @@ const refsFavorite = {
 refsFavorite.favoriteBtn.addEventListener('mouseover', onFavoriteBtnClick);
 refsFavorite.favoriteMenu.addEventListener('mouseout', onFavoriteBtnClick);
 
-refs.input.addEventListener('input', debounce(getData, DELAY));
-
 function onFavoriteBtnClick() {
   refsFavorite.favoriteMenu.classList.toggle('header__favorite-box--is-hidden');
 }

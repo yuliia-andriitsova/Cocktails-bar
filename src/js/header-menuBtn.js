@@ -7,8 +7,6 @@ const refsMenu = {
 const inputIsHidden = document.querySelector('.header__input-box--menu');
 const favoriteMenuEl = document.querySelector('.header__favorite-box');
 
-console.log(inputIsHidden);
-
 refsMenu.headerBtnMenu.addEventListener('click', onClickMenuButton);
 
 function onClickMenuButton() {
