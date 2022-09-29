@@ -21,15 +21,16 @@ export class getApiData {
     }
   }
 
-  async getParsedApiData() {
+  async getParsedApiDataRandom() {
     const params = {
-      url: `https://www.thecocktaildb.com/api/json/v1/1/search.php`,
-      [this.searchKey]: `${this.value}`,
+      url: `https://www.thecocktaildb.com/api/json/v1/1/random.php
+      `,
     };
 
     try {
-      const response = await axios.get(params.url, { params });
+      const response = await axios.get(params.url);
       const data = response.data.drinks;
+      // const [parsedData] = data;
       return data;
     } catch (error) {
       throw new Error(error);
