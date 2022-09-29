@@ -30,3 +30,8 @@
     color: #ffffff;
   }
 }
+
+.btn__transparent:hover .svg__btn,
+.btn__transparent:focus .svg__btn {
+  fill: currentColor;
+}
