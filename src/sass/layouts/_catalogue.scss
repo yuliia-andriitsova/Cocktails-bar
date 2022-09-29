@@ -200,14 +200,18 @@
   @include tablet {
     max-width: 335px;
   }
-  // @include desktop {
-  //   max-width: 395px;
-  // }
+  
 }
 
-.catalogue__list {
+.catalogue__listlist-favingr {
+  display: grid;
+
   @include tablet {
-    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 }
@@ -274,15 +278,5 @@
   @include tablet {
     display: flex;
     gap: 32px;
-  }
-}
-.catalogue__item {
-  background-color: transparent;
-  border-radius: 4px;
-  border: 1px solid #fd5103;
-  max-width: 479px;
-  padding-bottom: 20px;
-  @include tablet {
-    max-width: 335px;
   }
 }
