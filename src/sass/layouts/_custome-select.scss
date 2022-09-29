@@ -2,33 +2,28 @@
   // мобильная версия
   @include mobile {
     position: relative;
-
     margin: 0 auto;
   }
 
   @include tablet {
     position: absolute;
     top: 45%;
-    // left: 20px;
 
     display: flex;
     justify-content: center;
-
-    width: 324px;
-    height: 75px;
-
-    padding: 6px 9px;
+  }
+  @include desktop {
+    top: 45%;
   }
   &__btn {
-    @include mobile {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 93px;
-      height: 34px;
-      border: 1px solid var($colorFontPrimary);
-      border-radius: 4px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 93px;
+    height: 34px;
+    border: 1px solid $colorFontPrimary;
+    border-radius: 4px;
+    margin: auto;
 
     @include tablet {
       display: none;
@@ -36,51 +31,48 @@
   }
   // кнопка ховер
   &__btn:hover {
-    background-color: var($colorFontPrimary);
+    background-color: $colorFontPrimary;
   }
   // кнопка ховер буква
   &__btn:hover &__current {
-    color: var($colorBackgroundDay);
+    color: $colorBackgroundDay;
   }
   // кнопка ховер стрелка
   &__btn:hover &__icon {
-    fill: var($colorBackgroundDay);
+    fill: $colorBackgroundDay;
   }
   // текущая буква в кнопке
   &__current {
-    @include fonts {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: calc($lh / $fs);
-    }
-    color: var($colorFontPrimary);
+    @include fonts($fw: 700, $fs: 16px, $lh: 15px);
+    color: $colorFontPrimary;
   }
   // алфавит
   &__body {
-    @include mobile {
-      left: 0;
-      right: 0;
-      top: 100%;
-      border: 1px solid var($colorFontPrimary);
-      border-radius: 4px;
-      border-top: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    border: 1px solid $colorFontPrimary;
+    border-radius: 4px;
+    border-top: 0;
 
-      text-align: left;
-      width: 93px;
-      height: 84px;
-      overflow: scroll;
-    }
+    text-align: left;
+    width: 93px;
+    height: 84px;
+    overflow: scroll;
+    margin: auto;
 
     @include tablet {
       display: flex;
       flex-wrap: wrap;
-      // justify-content: center;
+      justify-content: space-evenly;
 
       border: 1px solid transparent;
-      // position: absolute;
-      top: 50%;
       width: 324px;
       height: 75px;
+    }
+    @include desktop {
+      width: 519px;
+      height: 120px;
     }
 
     // клас который скрывает алфавит для мобилки
@@ -99,18 +91,19 @@
   &__item {
     @include mobile {
       cursor: pointer;
-      @include fonts {
-        font-style: bold;
-        font-weight: 700;
-        font-size: 10px;
-        line-height: calc($lh / $fs);
-      }
-      //   line-height: 15px;
+      @include fonts($fw: 700, $ffs: bold, $fs: 10px, $lh: 15px);
       padding: 6px 10px;
     }
     @include tablet {
-      // justify-content: ;
-      padding: 6px 9px;
+      @include fonts($fw: 700, $ffs: bold, $fs: 14px, $lh: 21px);
+      padding: 0px 7px;
     }
+    @include desktop {
+      @include fonts($fw: 700, $fs: 24px, $lh: 36px);
+      padding: 3px 11px;
+    }
+  }
+  &__icon {
+    fill: $colorFontPrimary;
   }
 }
