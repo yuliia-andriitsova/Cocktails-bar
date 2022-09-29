@@ -189,9 +189,13 @@
   }
 
   &__input-box {
-    margin-left: 251px;
     display: flex;
     position: fixed;
+    right: 102px;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
 
     @include desktop {
       margin-right: 172px;
@@ -203,27 +207,49 @@
 
     &--menu {
       @include tablet {
-        display: none;
+        width: 288px;
+        position: absolute;
+        right: 102px;
       }
 
-      @include desktop {
-        display: block;
+
+      &.inputMenu--is-hidden {
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
       }
 
       @media screen and (max-width: 767px) {
-        position: absolute;
         top: 91px;
         left: 20px;
         margin-left: 0;
         height: 40px;
         width: 280px;
+        width: 92%;
+        /* margin-right: 15px; */
+        position: fixed;
+        z-index: 4;
+      }
+
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &--menu {
+      @include desktop {
+        position: absolute;
+        z-index: 5;
+        display: block;
+        right: 336px;
       }
     }
   }
 
   &__input {
     padding: 0px 0px 0px 48px;
-    width: 288px;
+    width: 100%;
     height: 40px;
     border: 1px solid #fd5103;
     border-radius: 4px;
@@ -255,6 +281,7 @@
     background-color: inherit;
     height: 100%;
     width: 40px;
+    height: 40px;
   }
 
   &__color-theme-box {

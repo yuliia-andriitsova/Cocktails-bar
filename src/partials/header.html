@@ -7,7 +7,24 @@
         class="header__logo"
       />
     </a>
-
+    <div class="header__input-box--menu inputMenu--is-hidden">
+      <form class="header__search-form">
+        <button class="header__input-button" type="submit">
+          <img
+            src="./images/header/bx_search.svg"
+            alt="search-btn-img"
+            class="header__input-icon"
+          />
+        </button>
+        <input
+          class="header__input"
+          name="headerInput"
+          type="text"
+          placeholder="Search"
+          autocomplete="off"
+        />
+      </form>
+    </div>
     <button class="header__button-menu">
       <svg class="header__icon-menu" width="30px" height="16px">
         <use href="./images/header/header-sprite.svg#icon-menu-black"></use>
@@ -43,24 +60,7 @@
         </li>
       </ul>
     </nav>
-    <div class="header__input-box header__input-box--menu">
-      <form class="header__search-form">
-        <button class="header__input-button">
-          <img
-            src="./images/header/bx_search.svg"
-            alt="search-btn-img"
-            class="header__input-icon"
-          />
-        </button>
-        <input
-          class="header__input"
-          name="headerInput"
-          type="text"
-          placeholder="Search"
-          autocomplete="off"
-        />
-      </form>
-    </div>
+
     <div class="header__color-theme-box header__color-theme-box--menu">
       <span
         class="header__color-theme-box-text header__color-theme-box-text--light"
