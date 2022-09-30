@@ -1,5 +1,5 @@
 import cocktailCard from '../template/cocktail-card.hbs';
-import noFindAnyCocktail from '../template/not-found-cocktails.hbs';
+import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 
@@ -24,12 +24,10 @@ function getSearchCocktailByName(e) {
   }
 }
 
-getRenderingRandomCoctail();
-
 async function getRenderingCocktailByName() {
   const r = await getClassApiData.getParsedApiData();
 
-  ifNoFindAnyCocktails(r);
+  ifNoFindAnyCocktail(r);
 }
 
 async function getRenderingRandomCoctail() {
@@ -38,6 +36,8 @@ async function getRenderingRandomCoctail() {
     getRenderingApi(r);
   }
 }
+
+getRenderingRandomCoctail();
 
 function getRenderingApi(r) {
   const data = r
@@ -49,14 +49,14 @@ function getRenderingApi(r) {
   refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
 }
 
-function ifNoFindAnyCocktails(r) {
+function ifNoFindAnyCocktail(r) {
   if (r !== null) {
     getRenderingApi(r);
   } else {
-    refsGallery.cataloguePattern.innerHTML = '';
-    refsGallery.cataloguePattern.insertAdjacentHTML(
+    refsGallery.catalogueList.innerHTML = '';
+    refsGallery.catalogueList.insertAdjacentHTML(
       'beforeend',
-      noFindAnyCocktail()
+      noFindAnyCoctail()
     );
   }
 }
