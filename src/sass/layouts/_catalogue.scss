@@ -204,6 +204,11 @@
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -264,6 +269,11 @@
 .catalogue__ingredient {
   margin-left: 20px;
   margin-right: 20px;
+  padding-bottom: 20px;
+
+  @include desktop {
+    padding-bottom: 26px;
+  }
 }
 
 .catalogue__textfav {
@@ -272,5 +282,13 @@
   @include tablet {
     @include fonts($ff: 'Poppins', $fw: 600, $fs: 16px, $lh: 24px);
     padding-top: 28px;
+  }
+}
+
+.catalogue__textfaving {
+  @include fonts($ff: 'Roboto', $fw: 900, $fs: 26px);
+  @include tablet {
+    @include fonts($ff: 'Roboto', $fw: 900, $fs: 28px, $lh: 33px);
+    padding-top: 20px;
   }
 }
