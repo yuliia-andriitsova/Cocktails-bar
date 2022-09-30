@@ -170,7 +170,17 @@ body.dark-theme {
         border: 1px solid $colorFontQuaternary;
         top: 91px;
         background-color: #202025;
-        border-top: none;
+
+        @media screen and (max-width: 1279px) {
+            border-radius: 4px;
+            top: 230px;
+            left: 199px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            border-top: none;
+
+        }
     }
 
     .header__favorite-box__text {
