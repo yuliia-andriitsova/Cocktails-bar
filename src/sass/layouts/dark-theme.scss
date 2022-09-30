@@ -24,10 +24,15 @@ body {
         cursor: pointer;
     }
 
-    .favorite-cocktails {
-        padding-top: 21px;
-        padding-bottom: 60px;
 
+    .favorite-cocktails,
+    .favorite-ingridients {
+        padding-top: 40px;
+    }
+
+    .favorite-ingridients {
+        padding-top: 30px;
+        padding-bottom: 60px;
     }
 
     .favorite-cocktails__title {

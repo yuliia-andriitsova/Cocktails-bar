@@ -464,7 +464,7 @@
 
   &__favorite-box {
     // transition: 1000ms;
-    position: fixed;
+    position: absolute;
     z-index: 3;
     width: 210px;
     height: 96px;
@@ -474,9 +474,10 @@
     top: 71px;
 
     @include desktop {
-      left: 395px;
+      left: 369px;
       position: absolute;
     }
+
 
     @media screen and (max-width: 1279px) {
       top: 230px;
