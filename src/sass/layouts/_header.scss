@@ -487,11 +487,14 @@
     top: 71px;
 
     @media screen and (max-width: 1279px) {
-      left: 198px;
+      left: 358px;
+      position: fixed;
     }
 
     @include desktop {
       border-top: none;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
     }
 
     @include desktop {
