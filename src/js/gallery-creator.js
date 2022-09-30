@@ -90,8 +90,10 @@ function getRenderingModalApi(array) {
     return modalCoctails(result);
   });
   refsModal.modal.insertAdjacentHTML('beforeend', info);
-  refsModal.closeModalBtn.addEventListener('click', CreateModal);
+  // refsModal.closeModalBtn.addEventListener('click', CreateModal);
 }
+
+refsModal.closeModalBtn.addEventListener('click', toggleModals);
 
 function toggleModals() {
   document.body.classList.toggle('overflow');
