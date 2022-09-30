@@ -23,6 +23,20 @@ body {
     >main>section.hero.container>div>div>div {
         cursor: pointer;
     }
+
+    .favorite-cocktails {
+        padding-top: 21px;
+        padding-bottom: 60px;
+
+    }
+
+    .favorite-cocktails__title {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 72px;
+
+        margin-bottom: 60px;
+    }
 }
 
 body.dark-theme {
@@ -229,4 +243,8 @@ body>main>section.hero.container>div>div>div {
         color: white;
         border-bottom: 1px solid $colorFontQuaternary;
     }
+}
+
+.hidden-page {
+    display: none;
 }
