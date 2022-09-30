@@ -4,6 +4,9 @@
   ],
   "reporters": [
     "...",
+    [
+      "parcel-reporter-copy-file-v2"
+    ],
     "parcel-reporter-clean-dist"
   ],
   "transformers": {
