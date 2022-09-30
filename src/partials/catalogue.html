@@ -2,9 +2,56 @@
   <div class="catalogue__pattern">
     <h2 class="catalogue__title">Cocktails</h2>
 
-    <ul class="catalogue__list list"></ul>
+    <ul class="catalogue__list list" data-modal-open></ul>
 
-    <div class="modal-first"></div>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal-first">
+        <h2 class="modal-first__title">strDrink</h2>
+
+        <div class="modal-first__instractions">
+          <h3 class="modal-first__title-second">Instractions:</h3>
+          <p class="modal-first__text">BLA BLA BLA</p>
+        </div>
+
+        <img
+          class="modal-first__img"
+          src="https://images.prom.ua/3957303837_w640_h640_nabor-stakanov-2.jpg"
+          alt="strDrink"
+        />
+
+        <div class="modal-first__ingridients">
+          <h3 class="modal-first__title-second ingridients">INGREDIENTS</h3>
+          <span class="modal-first__span">Per cocktail</span>
+
+          <ul class="modal-first__list list">
+            <li class="modal-first__item"><a href="">Ice</a></li>
+            <li class="modal-first__item"><a href="">1 ounce gin</a></li>
+            <li class="modal-first__item"><a href="">1 ounce Campari</a></li>
+            <li class="modal-first__item">
+              <a href="">1 ounce sweet vermouth</a>
+            </li>
+            <li class="modal-first__item">
+              <a href="">Garnish: orange peel</a>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn__orange modal-first__button">
+          Add to favorite
+        </button>
+
+        <svg
+          data-modal-close
+          class="modal-first__icon-close"
+          width="32px"
+          height="32px"
+        >
+          <use
+            href="./images/header/header-sprite.svg#icon-clarity_close-line"
+          ></use>
+        </svg>
+      </div>
+    </div>
   </div>
 </section>
 
