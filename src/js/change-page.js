@@ -13,8 +13,6 @@ const refsNav = {
   ),
 };
 
-console.log(refsNav);
-
 refsNav.favoriteCocktailsBtn.addEventListener(
   'click',
   onClickFavoriteCocktailsBtn

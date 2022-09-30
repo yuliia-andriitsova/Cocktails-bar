@@ -1,10 +1,10 @@
 .header {
+  background-color: $colorBackgroundDay;
   height: 90px;
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: white;
-  box-shadow: 0px 0px 10px;
+  box-shadow: 0px 1px 10px 0px;
 
   &-container {
     display: flex;
@@ -501,6 +501,7 @@
       left: 355px;
       position: absolute;
       top: 90px;
+      box-shadow: 0px 2px 3px 0px;
     }
 
 
