@@ -37,6 +37,23 @@ export class getApiData {
       throw new Error(error);
     }
   }
+  // ------------------------------SERGEY----------------------------------
+  async getParsedModalApiData() {
+    const params = {
+      url: `https://www.thecocktaildb.com/api/json/v1/1/lookup.php`,
+      [this.searchKey]: `${this.value}`,
+    };
+
+    try {
+      const response = await axios.get(params.url, { params });
+      const data = response.data.drinks;
+
+      return data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  // ------------------------------SERGEY----------------------------------
 
   get key() {
     return this.searchKey;
