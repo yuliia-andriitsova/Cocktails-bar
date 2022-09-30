@@ -19,6 +19,10 @@ body {
 
         }
     }
+
+    >main>section.hero.container>div>div>div {
+        cursor: pointer;
+    }
 }
 
 body.dark-theme {
