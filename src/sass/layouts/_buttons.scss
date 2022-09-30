@@ -1,7 +1,7 @@
 .btn__orange {
   padding: 15px 18px;
   background-color: #fe7031;
-  border: none;
+  border: 1px solid #fe7031;
   border-radius: 4px;
   color: #ffffff;
 
@@ -29,4 +29,9 @@
     background-color: #fe7031;
     color: #ffffff;
   }
+}
+
+.btn__transparent:hover .svg__btn,
+.btn__transparent:focus .svg__btn {
+  fill: currentColor;
 }
