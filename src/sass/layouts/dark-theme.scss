@@ -7,6 +7,11 @@ $colorFontQuaternary: #fcfcfc;
 $colorFontQuinary: #bdbdbd;
 
 body {
+
+    .hero {
+        padding-top: 90px;
+    }
+
     .catalogue {
         &__item {
             cursor: pointer;
@@ -25,13 +30,16 @@ body {
     }
 
 
-    .favorite-cocktails,
     .favorite-ingridients {
-        padding-top: 40px;
+        padding-top: 90px;
+    }
+
+    .favorite-cocktails {
+        padding-top: 90px;
     }
 
     .favorite-ingridients {
-        padding-top: 30px;
+        padding-top: 90px;
         padding-bottom: 60px;
     }
 
@@ -49,6 +57,8 @@ body.dark-theme {
     background-color: $colorBackGroundNight;
 
     .header {
+        background-color: $colorBackGroundNight;
+
         &__menu {
             background-color: $colorBackGroundNight;
 
@@ -158,6 +168,9 @@ body.dark-theme {
 
     .header__favorite-box {
         border: 1px solid $colorFontQuaternary;
+        top: 91px;
+        background-color: #202025;
+        border-top: none;
     }
 
     .header__favorite-box__text {
@@ -239,6 +252,9 @@ body.dark-theme {
         }
     }
 
+    .header__menu.header__menu--is-hidden>div>span.header__color-theme-box-text.header__color-theme-box-text--light {
+        color: white;
+    }
 }
 
 body>main>section.hero.container>div>div>div {
