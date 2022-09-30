@@ -1,0 +1,228 @@
+$colorBackgroundDay: #ffffff;
+$colorBackGroundNight: #202025;
+$colorFontPrimary: #fd5103;
+$colorFontSecondary: #202025;
+$colorFontTertiary: #5f6775;
+$colorFontQuaternary: #fcfcfc;
+$colorFontQuinary: #bdbdbd;
+
+body {
+    .catalogue {
+        &__item {
+            cursor: pointer;
+            border: 1px solid #fd5103;
+
+            &:hover,
+            &:focus {
+                box-shadow: 0px 0px 5px $colorFontPrimary;
+            }
+
+        }
+    }
+}
+
+body.dark-theme {
+    box-sizing: border-box;
+    background-color: $colorBackGroundNight;
+
+    .header {
+        &__menu {
+            background-color: $colorBackGroundNight;
+
+            >nav>ul>li:nth-child(2)>button {
+                color: $colorFontQuaternary;
+
+                &:hover,
+                &:focus {
+                    color: $colorFontPrimary;
+                }
+            }
+        }
+
+        &__icon-menu {
+            fill: $colorFontQuaternary;
+
+            &:hover,
+            &:focus {
+                fill: $colorFontPrimary;
+            }
+        }
+    }
+
+    .header__menu.header__menu--is-hidden {
+        background-color: $colorBackGroundNight;
+    }
+
+    .header__color-theme-box-text.header__color-theme-box-text--light {
+        color: $colorFontQuaternary;
+    }
+
+    .header__color-theme-box-text.header__color-theme-box-text--dark {
+        color: $colorFontPrimary;
+    }
+
+    .header__input {
+        background-color: $colorFontSecondary;
+        color: $colorFontQuaternary;
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            /* identical to box height, or 171% */
+
+            letter-spacing: 0.02em;
+
+            /* White */
+
+            color: #FCFCFC;
+
+            opacity: 0.4;
+
+
+        }
+
+
+        &:hover,
+        &:focus {
+            border: 1px solid $colorFontQuinary;
+            box-shadow: 0px 0px 4px $colorFontQuinary;
+        }
+
+        &-button {
+
+            &:hover,
+            &:focus {
+                box-shadow: 0px 0px 4px $colorFontQuinary;
+                background-color: rgba(255, 189, 189, 0.448);
+            }
+        }
+
+    }
+
+    .header__color-theme-box__switch {
+        background-color: $colorFontPrimary;
+        border: 1px solid $colorBackgroundDay;
+
+        >div {
+            background-color: $colorBackgroundDay;
+        }
+    }
+
+    .header__nav-item.header__nav-item--menu>a {
+        color: $colorFontQuaternary;
+
+        &:hover,
+        &:focus {
+            color: $colorFontPrimary;
+        }
+    }
+
+
+    .header__menu.header__menu--is-hidden>nav>ul>li>button {
+
+        color: $colorFontQuaternary;
+
+        &:hover,
+        &:focus {
+            color: $colorFontPrimary;
+        }
+
+        @media screen and (max-width: 1279px) {
+            color: $colorFontQuaternary;
+        }
+    }
+
+    .header__favorite-box {
+        border: 1px solid $colorFontQuaternary;
+    }
+
+    .header__favorite-box__text {
+        color: $colorFontQuaternary;
+
+        &:hover,
+        &:focus {
+            color: $colorFontSecondary;
+        }
+    }
+
+
+
+    .hero__search {
+        color: $colorFontQuaternary;
+    }
+
+    .hero.container {
+        background-color: $colorBackGroundNight;
+
+        &>div>div>div {
+            color: $colorFontTertiary;
+        }
+    }
+
+
+
+    .catalogue {
+        &__item {
+
+            &:hover,
+            &:focus {
+                box-shadow: 0px 0px 5px $colorFontQuaternary;
+                border: 1px solid $colorFontQuaternary;
+            }
+        }
+
+        &__title {
+            color: $colorFontQuaternary;
+        }
+
+        &__text {
+            color: $colorFontQuaternary;
+        }
+
+        &__textfaving {
+            color: $colorFontQuaternary;
+        }
+
+        &__textfav {
+            color: $colorFontQuaternary;
+        }
+    }
+
+    .select {
+        &__btn {
+            background-color: $colorBackGroundNight;
+
+            &:hover,
+            &:focus {
+                box-shadow: 0px 0px 4px $colorFontPrimary;
+            }
+        }
+
+        &__body {
+
+            &:hover,
+            &:focus {
+                box-shadow: 0px 0px 4px $colorFontPrimary;
+            }
+        }
+
+        &__item {
+
+            &:hover,
+            &:focus {
+                background-color: 0px 0px 4px $colorFontTertiary;
+            }
+        }
+    }
+
+}
+
+body>main>section.hero.container>div>div>div {
+
+    &:hover,
+    &:focus {
+        color: white;
+        border-bottom: 1px solid $colorFontQuaternary;
+    }
+}
