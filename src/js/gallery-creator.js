@@ -1,11 +1,12 @@
 import cocktailCard from '../template/cocktail-card.hbs';
-import notFoundCoctail from '../template/not-found-cocktails.hbs';
+import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 
 refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
-  cataloguePattern: document.querySelector('.catalogue__list'),
+  cataloguePattern: document.querySelector('.catalogue__pattern'),
+  catalogueList: document.querySelector('.catalogue__list'),
 };
 
 const getClassApiData = new getApiData();
@@ -19,22 +20,14 @@ function getSearchCocktailByName(e) {
   if (getClassApiData.value) {
     getClassApiData.key = 's';
     getRenderingCocktailByName();
-    refsGallery.cataloguePattern.innerHTML = '';
+    refsGallery.catalogueList.innerHTML = '';
   }
 }
 
 async function getRenderingCocktailByName() {
   const r = await getClassApiData.getParsedApiData();
 
-  if (r !== null) {
-    getRenderingApi(r);
-  } else {
-    refsGallery.cataloguePattern.innerHTML = '';
-    refsGallery.cataloguePattern.insertAdjacentHTML(
-      'beforeend',
-      notFoundCoctail()
-    );
-  }
+  ifNoFindAnyCocktail(r);
 }
 
 async function getRenderingRandomCoctail() {
@@ -53,5 +46,17 @@ function getRenderingApi(r) {
     })
     .join('');
 
-  refsGallery.cataloguePattern.insertAdjacentHTML('beforeend', data);
+  refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
+}
+
+function ifNoFindAnyCocktail(r) {
+  if (r !== null) {
+    getRenderingApi(r);
+  } else {
+    refsGallery.catalogueList.innerHTML = '';
+    refsGallery.catalogueList.insertAdjacentHTML(
+      'beforeend',
+      noFindAnyCoctail()
+    );
+  }
 }
