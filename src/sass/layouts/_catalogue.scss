@@ -182,6 +182,9 @@
     position: absolute;
     top: 16px;
     right: 16px;
+    background-color: #fd5103;
+    fill: black;
+    border-radius: 50%;
 
     @include tablet {
       top: 12px;

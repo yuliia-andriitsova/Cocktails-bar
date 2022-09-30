@@ -51,8 +51,7 @@ function getRenderingApi(r) {
 
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
-  console.log(openModalBtn);
-  openModalBtn.addEventListener('click', toggleModals);
+  openModalBtn.addEventListener('click', CreateModal);
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
 
@@ -71,29 +70,21 @@ function ifNoFindAnyCocktail(r) {
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 const refsModal = {
-  closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
 };
 
+const markup = modalCoctails();
+
+function modalMarkup() {
+  refsModal.modal.insertAdjacentHTML('beforeend', markup);
+  const closeModalBtn = document.querySelector('[data-modal-close]');
+  closeModalBtn.addEventListener('click', toggleModals);
+}
+
 function CreateModal() {
   toggleModals();
-  getRenderingModalByName();
+  modalMarkup();
 }
-
-async function getRenderingModalByName() {
-  const array = await getClassApiData.getParsedModalApiData();
-  getRenderingModalApi();
-}
-
-function getRenderingModalApi(array) {
-  const info = array.map(result => {
-    return modalCoctails(result);
-  });
-  refsModal.modal.insertAdjacentHTML('beforeend', info);
-  // refsModal.closeModalBtn.addEventListener('click', CreateModal);
-}
-
-refsModal.closeModalBtn.addEventListener('click', toggleModals);
 
 function toggleModals() {
   document.body.classList.toggle('overflow');
