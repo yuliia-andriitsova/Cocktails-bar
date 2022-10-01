@@ -4,7 +4,7 @@ import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
 
-const InfiniteScroll = require('infinite-scroll');
+// const InfiniteScroll = require('infinite-scroll');
 
 const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
@@ -54,7 +54,6 @@ function getRenderingApi(r) {
 
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
-  // console.log(openModalBtn);
   openModalBtn.addEventListener('click', CreateModal);
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
@@ -89,20 +88,16 @@ const refsModal = {
   modal: document.querySelector('[data-modal]'),
 };
 
-const markup = modalCoctails();
-// console.log(markup);
+let markup = modalCoctails();
 
-function modalMarkup() {
-  refsModal.modal.insertAdjacentHTML('beforeend', markup);
-
-  const closeModalBtn = document.querySelector('[data-modal-close]');
-
-  closeModalBtn.addEventListener('click', toggleModals);
-}
-
-function CreateModal() {
-  toggleModals();
-  modalMarkup();
+function CreateModal(e) {
+  if (e.target.classList.contains('open-modal-button')) {
+    toggleModals();
+    refsModal.modal.insertAdjacentHTML('beforeend', markup);
+    const closeModalBtn = document.querySelector('[data-modal-close]');
+    closeModalBtn.addEventListener('click', toggleModals);
+    markup = '';
+  }
 }
 
 function toggleModals() {
