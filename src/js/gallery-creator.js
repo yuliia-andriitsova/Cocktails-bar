@@ -4,7 +4,7 @@ import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
 
-const InfiniteScroll = require('infinite-scroll');
+// const InfiniteScroll = require('infinite-scroll');
 
 const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
