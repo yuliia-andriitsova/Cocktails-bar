@@ -3,7 +3,7 @@ import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
-import InfiniteScroll from 'infinite-scroll';
+// import InfiniteScroll from 'infinite-scroll';
 
 const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
@@ -25,16 +25,6 @@ function getSearchCocktailByName(e) {
     refsGallery.catalogueList.innerHTML = '';
   }
 }
-
-let infScroll = new InfiniteScroll(container, {
-  path: function () {
-    return `https://www.thecocktaildb.com/api/json/v1/1/search.php`;
-  },
-  // load response as JSON
-  responseBody: 'json',
-  status: '.scroll-status',
-  history: false,
-});
 
 async function getRenderingCocktailByName() {
   const r = await getClassApiData.getParsedApiData();
