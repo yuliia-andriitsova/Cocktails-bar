@@ -20,6 +20,7 @@ function getSearchCocktailByName(e) {
   e.preventDefault();
   getClassApiData.value = e.currentTarget.elements.headerInput.value.trim();
   refsGallery.formHeader.reset();
+  // window.location.href = 'http://localhost:1234/index.html';
   if (getClassApiData.value) {
     getClassApiData.key = 's';
     getRenderingCocktailByName();
