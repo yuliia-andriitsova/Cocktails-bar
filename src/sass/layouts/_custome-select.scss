@@ -69,11 +69,9 @@
       position: absolute;
       top: 50%;
       right: 50%;
-
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      justify-items: center;
       border: 1px solid transparent;
       width: 324px;
       height: 75px;

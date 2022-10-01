@@ -4,6 +4,7 @@
   border: 1px solid #fe7031;
   border-radius: 4px;
   color: #ffffff;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -23,6 +24,7 @@
   border-radius: 4px;
   border-color: $colorFontPrimary;
   color: $colorFontPrimary;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
