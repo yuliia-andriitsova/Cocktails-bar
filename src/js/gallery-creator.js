@@ -53,7 +53,6 @@ function getRenderingApi(r) {
 
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
-  // console.log(openModalBtn);
   openModalBtn.addEventListener('click', CreateModal);
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
@@ -88,20 +87,16 @@ const refsModal = {
   modal: document.querySelector('[data-modal]'),
 };
 
-const markup = modalCoctails();
-// console.log(markup);
+let markup = modalCoctails();
 
-function modalMarkup() {
-  refsModal.modal.insertAdjacentHTML('beforeend', markup);
-  console.log(refsModal.modal);
-  const closeModalBtn = document.querySelector('[data-modal-close]');
-  console.log(closeModalBtn);
-  closeModalBtn.addEventListener('click', toggleModals);
-}
-
-function CreateModal() {
-  toggleModals();
-  modalMarkup();
+function CreateModal(e) {
+  if (e.target.classList.contains('open-modal-button')) {
+    toggleModals();
+    refsModal.modal.insertAdjacentHTML('beforeend', markup);
+    const closeModalBtn = document.querySelector('[data-modal-close]');
+    closeModalBtn.addEventListener('click', toggleModals);
+    markup = '';
+  }
 }
 
 function toggleModals() {
