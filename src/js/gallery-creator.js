@@ -4,7 +4,7 @@ import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
 
-refsGallery = {
+const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
   catalogueTitle: document.querySelector('.catalogue__title'),
   catalogueList: document.querySelector('.catalogue__list'),
