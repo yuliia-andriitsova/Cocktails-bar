@@ -3,6 +3,7 @@ import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
+import InfiniteScroll from 'infinite-scroll';
 
 const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
