@@ -58,8 +58,14 @@ function getRenderingApi(r) {
 
 function ifNoFindAnyCocktail(r) {
   if (r !== null) {
+    let arr = [];
+    for (let i = 0; i < checkingScreenWidth; i += 1) {
+      if (r[i]) {
+        arr.push(r[i]);
+      }
+    }
     refsGallery.catalogueTitle.textContent = 'Cocktails';
-    getRenderingApi(r);
+    getRenderingApi(arr);
   } else {
     resetContent();
     refsGallery.catalogueList.insertAdjacentHTML(
