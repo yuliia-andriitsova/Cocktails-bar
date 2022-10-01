@@ -8,6 +8,7 @@
   transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .backdrop-campari.is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -17,6 +18,7 @@
 .backdrop-campari.is-hidden .modal-campari {
   transform: translate(-50%, -50%) scale(0.2);
 }
+
 .modal-campari {
   position: absolute;
   top: 50%;
@@ -32,11 +34,13 @@
     width: 715px;
   }
 }
+
 .campari-titles__border {
   padding-top: 40px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 10px;
+
   @include tablet {
     border-bottom: 1px solid $colorFontPrimary;
     padding: 40px 28px;
@@ -47,6 +51,7 @@
   @include fonts($ff: Roboto, $ffs: normal, $fw: 900, $fs: 32px, $lh: 38px);
   color: $colorFontSecondary;
   margin-bottom: 28px;
+
   &__min {
     @include fonts($ff: Poppins, $ffs: normal, $fw: 600, $fs: 16px, $lh: 24px);
     text-transform: uppercase;
@@ -67,10 +72,12 @@
       padding-bottom: 116px;
     }
   }
+
   color: $colorFontTertiary;
   margin-bottom: 28px;
   @include fonts($ff: Poppins, $ffs: normal, $fw: 400, $fs: 16px, $lh: 28px);
 }
+
 .campari-text__b {
   color: #000000;
 }
@@ -79,6 +86,7 @@
   @include fonts($ff: Poppins, $ffs: normal, $fw: 400, $fs: 16px, $lh: 26px);
   color: #5f6775;
 }
+
 .campari-list__itemb {
   color: $colorFontSecondary;
 }
@@ -100,6 +108,7 @@
 .campari-icon__close {
   // fill: $colorFontSecondary;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover {
     cursor: pointer;
   }
@@ -109,6 +118,7 @@
   position: absolute;
   left: 16px;
   bottom: 40px;
+
   @include tablet {
     width: max-content;
 
@@ -116,6 +126,7 @@
     left: 28px;
     bottom: 28px;
   }
+
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @include fonts($ff: Roboto, $ffs: normal, $fw: 400, $fs: 20px, $lh: 24px);
   letter-spacing: 0.02em;
