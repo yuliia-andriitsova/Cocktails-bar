@@ -53,6 +53,7 @@ function getRenderingApi(r) {
 
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
+  // console.log(openModalBtn);
   openModalBtn.addEventListener('click', CreateModal);
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
@@ -88,10 +89,13 @@ const refsModal = {
 };
 
 const markup = modalCoctails();
+// console.log(markup);
 
 function modalMarkup() {
   refsModal.modal.insertAdjacentHTML('beforeend', markup);
+  console.log(refsModal.modal);
   const closeModalBtn = document.querySelector('[data-modal-close]');
+  console.log(closeModalBtn);
   closeModalBtn.addEventListener('click', toggleModals);
 }
 
