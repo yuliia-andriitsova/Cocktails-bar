@@ -4,9 +4,9 @@ import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
 
-refsGallery = {
+const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
-  cataloguePattern: document.querySelector('.catalogue__pattern'),
+  catalogueTitle: document.querySelector('.catalogue__title'),
   catalogueList: document.querySelector('.catalogue__list'),
 };
 
@@ -32,6 +32,7 @@ async function getRenderingCocktailByName() {
 }
 
 async function getRenderingRandomCoctail() {
+  refsGallery.catalogueTitle.textContent = 'Cocktails';
   for (let i = 0; i < checkingScreenWidth; i += 1) {
     const r = await getClassApiData.getParsedApiDataRandom();
     getRenderingApi(r);
@@ -57,14 +58,26 @@ function getRenderingApi(r) {
 
 function ifNoFindAnyCocktail(r) {
   if (r !== null) {
-    getRenderingApi(r);
+    let arr = [];
+    for (let i = 0; i < checkingScreenWidth; i += 1) {
+      if (r[i]) {
+        arr.push(r[i]);
+      }
+    }
+    refsGallery.catalogueTitle.textContent = 'Cocktails';
+    getRenderingApi(arr);
   } else {
-    refsGallery.catalogueList.innerHTML = '';
+    resetContent();
     refsGallery.catalogueList.insertAdjacentHTML(
       'beforeend',
       noFindAnyCoctail()
     );
   }
+}
+
+function resetContent() {
+  refsGallery.catalogueList.innerHTML = '';
+  refsGallery.catalogueTitle.textContent = '';
 }
 
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓

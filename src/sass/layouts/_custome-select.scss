@@ -86,7 +86,7 @@
     }
 
     // клас который скрывает алфавит для мобилки
-    &.is-hidden {
+    &.is-hidden-hero {
       @include mobile {
         opacity: 0;
         pointer-events: none;
