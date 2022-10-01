@@ -26,6 +26,16 @@ function getSearchCocktailByName(e) {
   }
 }
 
+let infScroll = new InfiniteScroll(container, {
+  path: function () {
+    return `https://www.thecocktaildb.com/api/json/v1/1/search.php`;
+  },
+  // load response as JSON
+  responseBody: 'json',
+  status: '.scroll-status',
+  history: false,
+});
+
 async function getRenderingCocktailByName() {
   const r = await getClassApiData.getParsedApiData();
 
