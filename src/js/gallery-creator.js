@@ -2,6 +2,7 @@ import cocktailCard from '../template/cocktail-card.hbs';
 import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
+import modalCoctails from '../template/modal-cocktails.hbs';
 
 refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
@@ -47,6 +48,12 @@ function getRenderingApi(r) {
     .join('');
 
   refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
+
+  // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  const openModalBtn = document.querySelector('[data-modal-open]');
+  console.log(openModalBtn);
+  openModalBtn.addEventListener('click', toggleModals);
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
 
 function ifNoFindAnyCocktail(r) {
@@ -60,3 +67,36 @@ function ifNoFindAnyCocktail(r) {
     );
   }
 }
+
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+const refsModal = {
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+};
+
+function CreateModal() {
+  toggleModals();
+  getRenderingModalByName();
+}
+
+async function getRenderingModalByName() {
+  const array = await getClassApiData.getParsedModalApiData();
+  getRenderingModalApi();
+}
+
+function getRenderingModalApi(array) {
+  const info = array.map(result => {
+    return modalCoctails(result);
+  });
+  refsModal.modal.insertAdjacentHTML('beforeend', info);
+  // refsModal.closeModalBtn.addEventListener('click', CreateModal);
+}
+
+refsModal.closeModalBtn.addEventListener('click', toggleModals);
+
+function toggleModals() {
+  document.body.classList.toggle('overflow');
+  refsModal.modal.classList.toggle('is-hidden');
+}
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
