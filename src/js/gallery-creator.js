@@ -3,7 +3,7 @@ import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 
-refsGallery = {
+const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
   catalogueTitle: document.querySelector('.catalogue__title'),
   catalogueList: document.querySelector('.catalogue__list'),
