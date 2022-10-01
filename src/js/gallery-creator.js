@@ -6,7 +6,7 @@ import modalCoctails from '../template/modal-cocktails.hbs';
 
 refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
-  cataloguePattern: document.querySelector('.catalogue__pattern'),
+  catalogueTitle: document.querySelector('.catalogue__title'),
   catalogueList: document.querySelector('.catalogue__list'),
 };
 
@@ -32,6 +32,7 @@ async function getRenderingCocktailByName() {
 }
 
 async function getRenderingRandomCoctail() {
+  refsGallery.catalogueTitle.textContent = 'Cocktails';
   for (let i = 0; i < checkingScreenWidth; i += 1) {
     const r = await getClassApiData.getParsedApiDataRandom();
     getRenderingApi(r);
@@ -49,18 +50,18 @@ function getRenderingApi(r) {
 
   refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
 
-  // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-  const openModalBtn = document.querySelector('[data-modal-open]');
-  console.log(openModalBtn);
-  openModalBtn.addEventListener('click', toggleModals);
-  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+  // // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  // const openModalBtn = document.querySelector('[data-modal-open]');
+  // openModalBtn.addEventListener('click', CreateModal);
+  // // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
 
 function ifNoFindAnyCocktail(r) {
   if (r !== null) {
+    refsGallery.catalogueTitle.textContent = 'Cocktails';
     getRenderingApi(r);
   } else {
-    refsGallery.catalogueList.innerHTML = '';
+    resetContent();
     refsGallery.catalogueList.insertAdjacentHTML(
       'beforeend',
       noFindAnyCoctail()
@@ -68,35 +69,44 @@ function ifNoFindAnyCocktail(r) {
   }
 }
 
+function resetContent() {
+  refsGallery.catalogueList.innerHTML = '';
+  refsGallery.catalogueTitle.textContent = '';
+}
+
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-const refsModal = {
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-};
+// const refsModal = {
+//   closeModalBtn: document.querySelector('[data-modal-close]'),
+//   modal: document.querySelector('[data-modal]'),
+// };
 
-function CreateModal() {
-  toggleModals();
-  getRenderingModalByName();
-}
+// function CreateModal() {
+//   toggleModals();
+//   getRenderingModalByName();
+// }
 
-async function getRenderingModalByName() {
-  const array = await getClassApiData.getParsedModalApiData();
-  getRenderingModalApi();
-}
+// async function getRenderingModalByName() {
+//   const array = await getClassApiData.getParsedModalApiData();
+//   console.log(array);
 
-function getRenderingModalApi(array) {
-  const info = array.map(result => {
-    return modalCoctails(result);
-  });
-  refsModal.modal.insertAdjacentHTML('beforeend', info);
-  // refsModal.closeModalBtn.addEventListener('click', CreateModal);
-}
+//   getRenderingModalApi(array);
+// }
 
-refsModal.closeModalBtn.addEventListener('click', toggleModals);
+// function getRenderingModalApi(array) {
+//   const info = array.map(result => {
+//     return modalCoctails(result);
+//   });
 
-function toggleModals() {
-  document.body.classList.toggle('overflow');
-  refsModal.modal.classList.toggle('is-hidden');
-}
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+//   console.log(info);
+//   refsModal.modal.insertAdjacentHTML('beforeend', info);
+//   refsModal.closeModalBtn.addEventListener('click', toggleModals);
+// }
+
+// // refsModal.closeModalBtn.addEventListener('click', toggleModals);
+
+// function toggleModals() {
+//   document.body.classList.toggle('overflow');
+//   refsModal.modal.classList.toggle('is-hidden');
+// }
+// // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
