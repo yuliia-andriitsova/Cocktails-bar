@@ -9,11 +9,11 @@
     visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// .backdrop-campari.is-hidden {
-//   visibility: hidden;
-//   opacity: 0;
-//   pointer-events: none;
-// }
+.backdrop-campari.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
 
 .backdrop-campari.is-hidden .modal-campari {
   transform: translate(-50%, -50%) scale(0.2);
