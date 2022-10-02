@@ -97,6 +97,10 @@ body.dark-theme {
     .header__input {
         background-color: $colorFontSecondary;
         color: $colorFontQuaternary;
+        box-shadow: inset 0px 0px 5px 0px black;
+        outline: none;
+        border: none;
+        transition: 250ms;
 
         &::placeholder {
             font-weight: 400;
@@ -111,23 +115,44 @@ body.dark-theme {
             color: #FCFCFC;
 
             opacity: 0.4;
-
+            transition: 250ms;
 
         }
 
 
         &:hover,
         &:focus {
-            border: 1px solid $colorFontQuinary;
-            box-shadow: 0px 0px 4px $colorFontQuinary;
+            // outline: 1px solid $colorFontQuinary;
+            box-shadow: inset 0px 0px 10px 0px black;
+
+            &::placeholder {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+                letter-spacing: 0.02em;
+
+                /* White */
+
+                color: $colorFontPrimary;
+
+                opacity: 0.4;
+
+
+            }
         }
 
         &-button {
+            border: none;
+            // border-radius: 4px;
+            // border-right: 1px solid black;
+            box-shadow: inset 0px 0px 5px 0px black;
+            background-color: $colorBackGroundNight;
 
             &:hover,
             &:focus {
-                box-shadow: 0px 0px 4px $colorFontQuinary;
-                background-color: rgba(255, 189, 189, 0.448);
+                box-shadow: inset 0px 0px 10px 0px black;
             }
         }
 
@@ -166,8 +191,16 @@ body.dark-theme {
         }
     }
 
+    .not-found-cocktails__title {
+        color: $colorFontQuaternary;
+    }
+
+    .hero__search-mobile {
+        color: $colorFontQuaternary;
+    }
+
     .header__favorite-box {
-        border: 1px solid $colorFontQuaternary;
+        // border: 1px solid $colorFontQuaternary;
         top: 90px;
         background-color: #202025;
 
@@ -251,7 +284,10 @@ body.dark-theme {
 
             &:hover,
             &:focus {
-                box-shadow: 0px 0px 4px $colorFontPrimary;
+                @media screen and (max-width: 767px) {
+                    box-shadow: 0px 0px 4px $colorFontPrimary;
+
+                }
             }
         }
 
@@ -259,7 +295,10 @@ body.dark-theme {
 
             &:hover,
             &:focus {
-                box-shadow: 0px 0px 4px $colorFontPrimary;
+                @media screen and (max-width: 767px) {
+                    box-shadow: 0px 0px 4px $colorFontPrimary;
+
+                }
             }
         }
 
