@@ -6,3 +6,4 @@ import './js/custome-select';
 import './js/day-night-theme';
 import './js/change-page';
 import './js/add-to-favorite';
+import './js/light-scroll';
