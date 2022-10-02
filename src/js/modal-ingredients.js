@@ -1,4 +1,4 @@
-const openModalBtn = document.querySelector('.campari-title');
+// const openModalBtn = document.querySelector('.campari-title');
 const closeModalBtn = document.querySelector('.campari-btn__close');
 const modal = document.querySelector('.backdrop-campari');
 
