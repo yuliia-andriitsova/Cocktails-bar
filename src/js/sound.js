@@ -5,7 +5,7 @@ console.dir((soundTheme.controls = false));
 // console.dir((soundTheme.volume = 0.5));
 
 soundNone.addEventListener('click', onClickToSoundNone);
-
+soundTheme.preload = true;
 soundTheme.volume = 0.4;
 function onClickToSoundNone() {
   soundTheme.volume += 0.2;
