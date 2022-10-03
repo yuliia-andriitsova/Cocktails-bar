@@ -3,7 +3,8 @@ import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import modalCoctails from '../template/modal-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
-
+import modalCoctails from '../template/modal-cocktails.hbs';
+import modalIngredients from '../template/modal-ingredients.hbs';
 // const InfiniteScroll = require('infinite-scroll');
 
 const refsGallery = {
@@ -82,7 +83,7 @@ function resetContent() {
   refsGallery.catalogueList.innerHTML = '';
   refsGallery.catalogueTitle.textContent = '';
 }
-// resetContent();
+
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 const refsModal = {
@@ -95,7 +96,7 @@ async function getSearchCocktailById(id) {
   getClassApiData.param = 'lookup';
   const r = await getClassApiData.getParsedApiData();
 }
-
+let markupIngredients = modalIngredients();
 function CreateModal(e) {
   if (e.target.classList.contains('open-modal-button')) {
     const getId = Number(e.target.offsetParent.attributes[0].value);
@@ -103,8 +104,17 @@ function CreateModal(e) {
     // getSearchCocktailById(getId);
     refsModal.modal.insertAdjacentHTML('beforeend', modalCoctails());
     toggleModals();
+    refsModal.modal.insertAdjacentHTML('beforeend', markup);
     const closeModalBtn = document.querySelector('[data-modal-close]');
     closeModalBtn.addEventListener('click', toggleModals);
+    // ---Іванка-----
+    const openModaIngred = document.querySelector('.modal-first__list');
+    console.log(openModaIngred);
+    if (!refsModal.modal.classList.contains('is-hidden')) {
+      openModaIngred.addEventListener('click', openModalIng);
+    }
+    // ----Іванка---
+    markup = '';
   }
 }
 
@@ -133,11 +143,16 @@ function openModalIng(event) {
   }
 }
 
+function toggleModals() {
+  document.body.classList.toggle('overflow');
+  refsModal.modal.classList.toggle('is-hidden');
+}
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+// -----Іванка
 function closeOnClick(event) {
   if (event.target.classList.contains('red')) {
-    document
-      .querySelector('.backdrop-campari')
-      .classList.add('is-hidden-campari');
+    document.querySelector('.backdrop-campari').classList.add('is-hidden-campari');
     document.body.classList.remove('overflow-campari');
   } else {
     return;
