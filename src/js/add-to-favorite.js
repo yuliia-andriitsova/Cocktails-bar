@@ -1,4 +1,4 @@
-const { data } = require('infinite-scroll');
+// const { data } = require('infinite-scroll');
 
 const catalogueListFavoriteCocktails = document.querySelector(
   'body > main > div.favorite-cocktails-page > section > div > ul'
