@@ -1,6 +1,9 @@
+const { data } = require('infinite-scroll');
+
 const catalogueListFavoriteCocktails = document.querySelector(
   'body > main > div.favorite-cocktails-page > section > div > ul'
 );
+// console.log(catalogueListFavoriteCocktails);
 
 // Створюємо масив, який забирає масив із локал сторедж або пустий
 let favoriteCocktailsEl = JSON.parse(localStorage.savedCocktails || '[]');
@@ -8,65 +11,80 @@ let favoriteCocktailsEl = JSON.parse(localStorage.savedCocktails || '[]');
 const catalogueListRef = document.querySelector('.catalogue__list');
 
 if (catalogueListRef) {
-  catalogueListRef.addEventListener('click', onClickBtn);
+  catalogueListRef.addEventListener('mousedown', onClickBtn);
 }
+
+let randomCardsGallery = '';
+let htmlCoctailCard = '';
 
 function onClickBtn(e) {
   if (e.target.classList.contains('btn__transparent')) {
-    const refsFav = {
-      addToFav: document.querySelectorAll('.catalogue__item'),
-    };
-
-    const allCocktailsEl = refsFav.addToFav;
-
     let BtnToFavoriteCocktails = '';
+    randomCardsGallery = catalogueListRef.children;
+    e.target.childNodes[0].data = 'Remove';
+    console.log(e.target);
 
-    function allCocktailsMap() {
-      for (let i = 0; i < allCocktailsEl.length - 1; i++) {
-        BtnToFavoriteCocktails =
-          allCocktailsEl[i].children[1].children[1].children[1];
+    for (let i = 0; i < randomCardsGallery.length; i++) {
+      BtnToFavoriteCocktails =
+        randomCardsGallery[i].children[1].children[1].children[1];
 
-        // BtnToFavoriteCocktails.firstChild.data = 'Remove';
-        // console.dir(BtnToFavoriteCocktails.firstChild.data);
+      BtnToFavoriteCocktails.addEventListener('click', allCocktailsMap);
 
-        BtnToFavoriteCocktails.addEventListener(
-          'click',
-          onClickBtnToAddFavoriteCocktails
+      function allCocktailsMap() {
+        htmlCoctailCard = new XMLSerializer().serializeToString(
+          randomCardsGallery[i]
         );
-
-        function onClickBtnToAddFavoriteCocktails() {
-          // BtnToFavoriteCocktails.firstChild.data = 'Remove';
-          // console.log(BtnToFavoriteCocktails.firstChild.data);
-
-          // Перетворюємо html код в строку
-          let htmlCoctailCard = new XMLSerializer().serializeToString(
-            allCocktailsEl[i]
-          );
-          // BtnToFavoriteCocktails.firstChild.data = 'Remove';
-          // Перевірка, якщо наш масив не містить карту то пушим карту + рендерим
-          if (!favoriteCocktailsEl.includes(htmlCoctailCard)) {
-            favoriteCocktailsEl.push(htmlCoctailCard);
-            catalogueListFavoriteCocktails.insertAdjacentHTML(
-              'beforeend',
-              htmlCoctailCard
-            );
-          }
-          // Створюємо локальне сховище, передаємо туда масив
-          localStorage.setItem(
-            'savedCocktails',
-            JSON.stringify(favoriteCocktailsEl)
+        // console.log(htmlCoctailCard);
+        if (!favoriteCocktailsEl.includes(htmlCoctailCard)) {
+          favoriteCocktailsEl.push(htmlCoctailCard);
+          // console.log(favoriteCocktailsEl);
+          catalogueListFavoriteCocktails.insertAdjacentHTML(
+            'beforeend',
+            htmlCoctailCard
           );
         }
+        localStorage.setItem(
+          'savedCocktails',
+          JSON.stringify(favoriteCocktailsEl)
+        );
       }
     }
-    allCocktailsMap();
   }
 }
 
-let savedCocktailsDataLS = localStorage.getItem('savedCocktails');
-let parsedCocktailsDataLS = JSON.parse(savedCocktailsDataLS).join('');
+const savedCocktailsDataLS = localStorage.getItem('savedCocktails');
+const parsedCocktailsDataLS = JSON.parse(savedCocktailsDataLS).join('');
 
 catalogueListFavoriteCocktails.insertAdjacentHTML(
   'beforeend',
   parsedCocktailsDataLS
 );
+
+//                          ----- Remove Button -----
+
+if (catalogueListFavoriteCocktails) {
+  catalogueListFavoriteCocktails.addEventListener('click', onClickBtn);
+}
+let htmlRemoveCoctailCard = '';
+function onClickBtn(e) {
+  const cardToRemove = e.target.parentElement.parentElement.parentElement;
+  if (e.target.classList.contains('btn__transparent')) {
+    htmlRemoveCoctailCard = new XMLSerializer().serializeToString(cardToRemove);
+
+    let indexForRemoveCocktailCard = favoriteCocktailsEl.indexOf(
+      htmlRemoveCoctailCard
+    );
+
+    if (favoriteCocktailsEl.includes(htmlRemoveCoctailCard)) {
+      favoriteCocktailsEl.splice(indexForRemoveCocktailCard, 1);
+      console.log(favoriteCocktailsEl);
+      catalogueListFavoriteCocktails.insertAdjacentHTML('beforeend', '');
+      localStorage.setItem(
+        'savedCocktails',
+        JSON.stringify(favoriteCocktailsEl)
+      );
+    }
+  }
+}
+
+console.log(catalogueListFavoriteCocktails);

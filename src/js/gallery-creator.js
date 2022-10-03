@@ -51,7 +51,7 @@ function getRenderingApi(r) {
     .join('');
 
   refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
-  console.log(data);
+  // console.log(data);
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
   openModalBtn.addEventListener('click', CreateModal);
