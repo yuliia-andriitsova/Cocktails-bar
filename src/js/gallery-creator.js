@@ -105,7 +105,6 @@ function toggleModals() {
   refsModal.modal.classList.toggle('is-hidden');
 }
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-<<<<<<< HEAD
 
 //  ----------Іванка---------------
 let nameIngredient = '';
@@ -137,5 +136,3 @@ function closeOnClick(event) {
   }
 }
 // -----Іванка----
-=======
->>>>>>> parent of 8f07eea (Merge branch 'main' of https://github.com/Vokoloven/hardcore-bar into header/oles)
