@@ -51,13 +51,13 @@ function getRenderingApi(r) {
     .join('');
 
   refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
-
+  console.log(data);
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
   openModalBtn.addEventListener('click', CreateModal);
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
-
+getRenderingApi;
 function ifNoFindAnyCocktail(r) {
   if (r !== null) {
     let arr = [];
@@ -81,7 +81,7 @@ function resetContent() {
   refsGallery.catalogueList.innerHTML = '';
   refsGallery.catalogueTitle.textContent = '';
 }
-
+// resetContent();
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 const refsModal = {
