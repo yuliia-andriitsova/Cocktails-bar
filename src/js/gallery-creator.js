@@ -103,7 +103,7 @@ function CreateModal(e) {
   if (e.target.classList.contains('open-modal-button')) {
     const getId = Number(e.target.offsetParent.attributes[0].value);
 
-    // getSearchCocktailById(getId);
+    getSearchCocktailById(getId);
     // refsModal.modal.insertAdjacentHTML('beforeend', modalCoctails());
     toggleModals();
     refsModal.modal.insertAdjacentHTML('beforeend', markup);
