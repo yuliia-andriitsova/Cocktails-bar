@@ -21,7 +21,7 @@ function changeThemeOnClick() {
 const getSettings = localStorage.getItem('settings');
 const getParsedSettings = JSON.parse(getSettings);
 
-if (getParsedSettings.toddler === true) {
+if (getParsedSettings && getParsedSettings.toddler === true) {
   eval(getParsedSettings.toddlerText);
   nightTheme();
 } else {
