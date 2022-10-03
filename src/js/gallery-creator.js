@@ -3,7 +3,7 @@ import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
-import modalIngredients from '../template/modal-ingredients.hbs';
+
 // const InfiniteScroll = require('infinite-scroll');
 
 const refsGallery = {
@@ -51,19 +51,19 @@ function getRenderingApi(r) {
     .join('');
 
   refsGallery.catalogueList.insertAdjacentHTML('beforeend', data);
-
+  // console.log(data);
   // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   const openModalBtn = document.querySelector('[data-modal-open]');
   openModalBtn.addEventListener('click', CreateModal);
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
-
+getRenderingApi;
 function ifNoFindAnyCocktail(r) {
   if (r !== null) {
     let arr = [];
     for (let i = 0; i < checkingScreenWidth; i += 1) {
       if (r[i]) {
-        arr.push(refactoringCocktailsArray(r)[i]);
+        arr.push(r[i]);
       }
     }
     refsGallery.catalogueTitle.textContent = 'Cocktails';
@@ -77,26 +77,11 @@ function ifNoFindAnyCocktail(r) {
   }
 }
 
-function refactoringCocktailsArray(elements) {
-  return elements.map(el => {
-    let arr = [];
-
-    for (let key of Object.keys(el)) {
-      for (let i = 1; i < 15; i += 1) {
-        if (key === `strIngredient${i}` && el[key] !== null) {
-          arr.push(el[key]);
-          el.strIngredient = arr;
-        }
-      }
-    }
-  });
-}
-
 function resetContent() {
   refsGallery.catalogueList.innerHTML = '';
   refsGallery.catalogueTitle.textContent = '';
 }
-
+// resetContent();
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓Sergey↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 const refsModal = {
@@ -104,20 +89,13 @@ const refsModal = {
 };
 
 let markup = modalCoctails();
-let markupIngredients = modalIngredients();
+
 function CreateModal(e) {
   if (e.target.classList.contains('open-modal-button')) {
     toggleModals();
     refsModal.modal.insertAdjacentHTML('beforeend', markup);
     const closeModalBtn = document.querySelector('[data-modal-close]');
     closeModalBtn.addEventListener('click', toggleModals);
-    // ---Іванка-----
-    const openModaIngred = document.querySelector('.modal-first__list');
-    console.log(openModaIngred);
-    if (!refsModal.modal.classList.contains('is-hidden')) {
-      openModaIngred.addEventListener('click', openModalIng);
-    }
-    // ----Іванка---
     markup = '';
   }
 }

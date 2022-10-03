@@ -11,6 +11,7 @@ const refsNav = {
   homeBtn: document.querySelector(
     'body > header > div > div.header__menu.header__menu--is-hidden > nav > ul > li.header__nav-item.header__nav-item--menu'
   ),
+  btnToSearch: document.querySelector('#header > div > a'),
 };
 
 refsNav.favoriteCocktailsBtn.addEventListener(
@@ -27,14 +28,17 @@ function onClickHomeBtn() {
   refsNav.favoriteCocktailsPage.classList.add('hidden-page');
   refsNav.mainPage.classList.remove('hidden-page');
   refsNav.favoriteIngridientsPage.classList.add('hidden-page');
+  refsNav.btnToSearch.classList.remove('hidden-page');
 }
 function onClickFavoriteCocktailsBtn() {
   refsNav.favoriteCocktailsPage.classList.remove('hidden-page');
   refsNav.mainPage.classList.add('hidden-page');
   refsNav.favoriteIngridientsPage.classList.add('hidden-page');
+  refsNav.btnToSearch.classList.add('hidden-page');
 }
 function onClickFavoriteIngridientsBtn() {
   refsNav.favoriteCocktailsPage.classList.add('hidden-page');
   refsNav.mainPage.classList.add('hidden-page');
   refsNav.favoriteIngridientsPage.classList.remove('hidden-page');
+  refsNav.btnToSearch.classList.add('hidden-page');
 }
