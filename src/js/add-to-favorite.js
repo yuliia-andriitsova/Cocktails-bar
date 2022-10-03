@@ -10,7 +10,7 @@ let favoriteCocktailsEl = JSON.parse(localStorage.savedCocktails || '[]');
 const catalogueListRef = document.querySelector('.catalogue__list');
 
 if (catalogueListRef) {
-  catalogueListRef.addEventListener('click', onClickBtn);
+  catalogueListRef.addEventListener('mousedown', onClickBtn);
 }
 
 let randomCardsGallery = '';
@@ -20,13 +20,14 @@ function onClickBtn(e) {
   if (e.target.classList.contains('btn__transparent')) {
     let BtnToFavoriteCocktails = '';
     randomCardsGallery = catalogueListRef.children; // Отримуємо масив карток
-    e.target.childNodes[0].data = 'Remove'; // При натисканні на кнопку заміняємо слова
 
     for (let i = 0; i < randomCardsGallery.length; i++) {
       BtnToFavoriteCocktails = // Визначаємо де кнопка
         randomCardsGallery[i].children[1].children[1].children[1];
 
       BtnToFavoriteCocktails.addEventListener('click', allCocktailsMap); // Слухач по кліку
+
+      e.target.childNodes[0].data = 'Remove'; // При натисканні на кнопку заміняємо слова
 
       function allCocktailsMap() {
         // Серіалізуємо в стрінгу
@@ -96,4 +97,5 @@ function onRemoveItemBtn(e) {
       );
     }
   }
+  e.target.childNodes[0].data = 'Add to'; // При натисканні на кнопку заміняємо слова
 }
