@@ -3,9 +3,8 @@ import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import modalCoctails from '../template/modal-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
-import modalCoctails from '../template/modal-cocktails.hbs';
-import modalIngredients from '../template/modal-ingredients.hbs';
-// const InfiniteScroll = require('infinite-scroll');
+// import modalCoctails from '../template/modal-cocktails.hbs';
+// import modalIngredients from '../template/modal-ingredients.hbs';
 
 const refsGallery = {
   formHeader: document.querySelector('.header__search-form'),
@@ -152,7 +151,9 @@ function toggleModals() {
 // -----Іванка
 function closeOnClick(event) {
   if (event.target.classList.contains('red')) {
-    document.querySelector('.backdrop-campari').classList.add('is-hidden-campari');
+    document
+      .querySelector('.backdrop-campari')
+      .classList.add('is-hidden-campari');
     document.body.classList.remove('overflow-campari');
   } else {
     return;
