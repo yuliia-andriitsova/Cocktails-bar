@@ -650,3 +650,14 @@
 .btn__is-hidden {
   display: none;
 }
+
+.catalogue__item {
+  scale: 1.00;
+  transition: 250ms;
+
+  &:hover,
+  &:focus {
+    scale: 1.03;
+
+  }
+}
