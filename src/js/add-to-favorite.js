@@ -27,8 +27,9 @@ function onClickBtn(e) {
 
       BtnToFavoriteCocktails.addEventListener('click', allCocktailsMap); // Слухач по кліку
 
+      e.target.childNodes[0].data = 'Remove'; // При натисканні на кнопку заміняємо слова
+
       function allCocktailsMap() {
-        console.log(htmlCoctailCard);
         // Серіалізуємо в стрінгу
         htmlCoctailCard = new XMLSerializer().serializeToString(
           randomCardsGallery[i] // Масив об'єктів
@@ -39,12 +40,10 @@ function onClickBtn(e) {
 
           // Добавляєм його в розмітку
           catalogueListFavoriteCocktails.insertAdjacentHTML(
+            //
             'beforeend',
             htmlCoctailCard
           );
-        }
-        if (favoriteCocktailsEl.includes(htmlCoctailCard)) {
-          e.target.childNodes[0].data = 'Remove'; // При натисканні на кнопку заміняємо слова
         }
 
         // Добавляєм масив в локальне сховище
@@ -72,7 +71,6 @@ if (catalogueListFavoriteCocktails) {
   catalogueListFavoriteCocktails.addEventListener('click', onRemoveItemBtn);
 }
 let htmlRemoveCoctailCard = '';
-console.log(htmlCoctailCard);
 
 function onRemoveItemBtn(e) {
   // Отримуємо доступ до картки яку необхідно видалити
@@ -98,8 +96,6 @@ function onRemoveItemBtn(e) {
         JSON.stringify(favoriteCocktailsEl)
       );
     }
-    if (!favoriteCocktailsEl.includes(htmlRemoveCoctailCard)) {
-      e.target.childNodes[0].data = 'Add to'; // При натисканні на кнопку заміняємо слова
-    }
   }
+  e.target.childNodes[0].data = 'Add to'; // При натисканні на кнопку заміняємо слова
 }
