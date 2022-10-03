@@ -103,8 +103,8 @@ const refsModal = {
   modal: document.querySelector('[data-modal]'),
 };
 
-// let markup = modalCoctails();
-// let markupIngredients = modalIngredients();
+let markup = modalCoctails();
+let markupIngredients = modalIngredients();
 function CreateModal(e) {
   if (e.target.classList.contains('open-modal-button')) {
     toggleModals();
