@@ -64,7 +64,7 @@ function ifNoFindAnyCocktail(r) {
     let arr = [];
     for (let i = 0; i < checkingScreenWidth; i += 1) {
       if (r[i]) {
-        arr.push(r[i]);
+        arr.push(refactoringCocktailsArray(r)[i]);
       }
     }
     refsGallery.catalogueTitle.textContent = 'Cocktails';
@@ -76,6 +76,21 @@ function ifNoFindAnyCocktail(r) {
       noFindAnyCoctail()
     );
   }
+}
+
+function refactoringCocktailsArray(elements) {
+  return elements.map(el => {
+    let arr = [];
+
+    for (let key of Object.keys(el)) {
+      for (let i = 1; i < 15; i += 1) {
+        if (key === `strIngredient${i}` && el[key] !== null) {
+          arr.push(el[key]);
+          el.strIngredient = arr;
+        }
+      }
+    }
+  });
 }
 
 function resetContent() {
@@ -90,6 +105,7 @@ const refsModal = {
 };
 
 async function getSearchCocktailById(id) {
+  refsModal.modal.innerHTML = '';
   getClassApiData.key = 'i';
   getClassApiData.value = id;
   getClassApiData.param = 'lookup';
@@ -104,9 +120,11 @@ function CreateModal(e) {
     const getId = Number(e.target.offsetParent.attributes[0].value);
 
     getSearchCocktailById(getId);
-    // refsModal.modal.insertAdjacentHTML('beforeend', modalCoctails());
+
     toggleModals();
+
     refsModal.modal.insertAdjacentHTML('beforeend', markup);
+
     const closeModalBtn = document.querySelector('[data-modal-close]');
     closeModalBtn.addEventListener('click', toggleModals);
     // ---Іванка-----
