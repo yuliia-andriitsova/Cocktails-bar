@@ -103,8 +103,8 @@ const refsModal = {
   modal: document.querySelector('[data-modal]'),
 };
 
-let markup = modalCoctails();
-let markupIngredients = modalIngredients();
+// let markup = modalCoctails();
+// let markupIngredients = modalIngredients();
 function CreateModal(e) {
   if (e.target.classList.contains('open-modal-button')) {
     toggleModals();
@@ -121,7 +121,6 @@ function CreateModal(e) {
     markup = '';
   }
 }
-
 
 function toggleModals() {
   document.body.classList.toggle('overflow');
@@ -150,7 +149,9 @@ function openModalIng(event) {
 
 function closeOnClick(event) {
   if (event.target.classList.contains('red')) {
-    document.querySelector('.backdrop-campari').classList.add('is-hidden-campari');
+    document
+      .querySelector('.backdrop-campari')
+      .classList.add('is-hidden-campari');
     document.body.classList.remove('overflow-campari');
   } else {
     return;
