@@ -1,5 +1,6 @@
 import cocktailCard from '../template/cocktail-card.hbs';
 import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
+import modalCoctails from '../template/modal-cocktails.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 import modalCoctails from '../template/modal-cocktails.hbs';
@@ -12,10 +13,6 @@ const refsGallery = {
   catalogueList: document.querySelector('.catalogue__list'),
 };
 
-// ----------------Іванка______________
-
-// --------------Іванка_____
-
 const getClassApiData = new getApiData();
 
 refsGallery.formHeader.addEventListener('submit', getSearchCocktailByName);
@@ -26,6 +23,7 @@ function getSearchCocktailByName(e) {
   refsGallery.formHeader.reset();
   if (getClassApiData.value) {
     getClassApiData.key = 's';
+    getClassApiData.param = 'search';
     getRenderingCocktailByName();
     refsGallery.catalogueList.innerHTML = '';
   }
@@ -92,10 +90,19 @@ const refsModal = {
   modal: document.querySelector('[data-modal]'),
 };
 
-let markup = modalCoctails();
+async function getSearchCocktailById(id) {
+  getClassApiData.key = 'i';
+  getClassApiData.value = id;
+  getClassApiData.param = 'lookup';
+  const r = await getClassApiData.getParsedApiData();
+}
 let markupIngredients = modalIngredients();
 function CreateModal(e) {
   if (e.target.classList.contains('open-modal-button')) {
+    const getId = Number(e.target.offsetParent.attributes[0].value);
+
+    // getSearchCocktailById(getId);
+    refsModal.modal.insertAdjacentHTML('beforeend', modalCoctails());
     toggleModals();
     refsModal.modal.insertAdjacentHTML('beforeend', markup);
     const closeModalBtn = document.querySelector('[data-modal-close]');
@@ -110,6 +117,14 @@ function CreateModal(e) {
     markup = '';
   }
 }
+
+function toggleModals() {
+  document.body.classList.toggle('overflow');
+  refsModal.modal.classList.toggle('is-hidden');
+}
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+//  ----------Іванка---------------
 let nameIngredient = '';
 
 function openModalIng(event) {
