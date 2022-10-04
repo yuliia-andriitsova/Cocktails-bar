@@ -194,6 +194,5 @@ function closeOnClick(event) {
     return;
   }
     refsModal.modalModalIngredientInfo.innerHTML = '';
-
 }
 // -----Іванка----
