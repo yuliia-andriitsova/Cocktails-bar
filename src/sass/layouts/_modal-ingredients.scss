@@ -88,10 +88,6 @@
   @include fonts($ff: Poppins, $ffs: normal, $fw: 400, $fs: 16px, $lh: 28px);
 }
 
-.campari-text__b {
-  color: #000000;
-}
-
 .campari-list__item {
   @include fonts($ff: Poppins, $ffs: normal, $fw: 400, $fs: 16px, $lh: 26px);
   color: #5f6775;
