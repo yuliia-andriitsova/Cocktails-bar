@@ -129,6 +129,11 @@
     }
   }
 
+  &__item:hover {
+    color: #fd5103;
+    cursor: pointer;
+  }
+
   &__button {
     @include fonts(Roboto, normal, 400, 20px, 24px);
     letter-spacing: 0.02em;
@@ -161,12 +166,18 @@
     top: 16px;
     right: 16px;
 
+    cursor: pointer;
+
     border-radius: 50%;
 
     @include tablet {
       top: 12px;
       right: 12px;
     }
+  }
+
+  &__icon-close:hover {
+    fill: #fd5103;
   }
 
   &__instractions {
@@ -326,4 +337,14 @@
 
   transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 750ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal-first {
+  transform: translate(-50%, -50%) scale(0.2);
 }
