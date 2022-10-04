@@ -129,6 +129,11 @@
     }
   }
 
+  &__item:hover {
+    color: #fd5103;
+    cursor: pointer;
+  }
+
   &__button {
     @include fonts(Roboto, normal, 400, 20px, 24px);
     letter-spacing: 0.02em;
@@ -161,12 +166,18 @@
     top: 16px;
     right: 16px;
 
+    cursor: pointer;
+
     border-radius: 50%;
 
     @include tablet {
       top: 12px;
       right: 12px;
     }
+  }
+
+  &__icon-close:hover {
+    fill: #fd5103;
   }
 
   &__instractions {
