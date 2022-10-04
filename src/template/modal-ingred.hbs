@@ -1,15 +1,13 @@
 <button type="button" class="campari-btn__close red">
-    {{!-- <svg class="modal-first__icon-close" width="32px" height="32px">
-        <use href="./images/header/header-sprite.svg#icon-clarity_close-line"></use>
-    </svg> --}}
+    <img src="http://localhost:1234/close.svg" class='campari-icon__close red' width='32px' height='32px' data-modal-close>
+    </img>
 </button>
 <div class="campari-titles__border">
     <h2 class="campari-title">{{strIngredient}}</h2>
     <h3 class="campari-title__min">{{strType}}</h3>
 </div>
 <div class="campari-text__container">
-    <p class="campari-text">
-        <b class="campari-text__b">{{strDescription}}
+    <p class="campari-text">{{strDescription}}
     </p>
     <ul class="list campari-list">
         <li class="campari-list__item">
@@ -18,10 +16,6 @@
         <li class="campari-list__item">
             <span class="campari-list__itemb">✶ </span>Alcohol by volume:
             {{strABV}}%
-        </li>
-        <li class="campari-list__item">
-            <span class="campari-list__itemb">✶ </span>Flavour: Bitter, spicy and
-            sweet
         </li>
     </ul>
 </div>
