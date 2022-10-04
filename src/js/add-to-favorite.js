@@ -31,7 +31,7 @@ function onClickBtn(e) {
     let BtnToFavoriteCocktails = '';
     randomCardsGallery = catalogueListRef.children; // Отримуємо масив карток
 
-    for (let i = 0; i < randomCardsGallery.length - 1; i++) {
+    for (let i = 0; i < randomCardsGallery.length; i++) {
       BtnToFavoriteCocktails = // Визначаємо де кнопка
         randomCardsGallery[i].children[1].children[1].children[1];
       // console.log(BtnToFavoriteCocktails);
