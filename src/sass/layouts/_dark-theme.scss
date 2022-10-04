@@ -7,6 +7,8 @@ $colorFontQuaternary: #fcfcfc;
 $colorFontQuinary: #bdbdbd;
 
 body {
+  margin-right: calc(-1 * (100vw - 100%));
+
   .hero {
     padding-top: 90px;
   }
