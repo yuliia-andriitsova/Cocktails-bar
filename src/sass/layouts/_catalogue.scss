@@ -249,6 +249,7 @@
 
 .catalogue__img {
   width: 100%;
+
   @include tablet {
     max-width: 335px;
   }
@@ -282,20 +283,33 @@
   display: flex;
   gap: 12px;
 
+  @media screen and (max-width: 767px) {
+    padding-left: 14px;
+    padding-right: 14px;
+
+  }
+
+
   justify-content: space-around;
   padding-top: 16px;
+
   @include tablet {
+    padding-right: 23px;
+    padding-left: 23px;
     padding-top: 25px;
-    gap: 16px;
+    gap: 24px;
   }
+
   @include desktop {
     padding-top: 27px;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }
 
 .catalogue__ingredient {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
   padding-bottom: 20px;
 
   @include desktop {
@@ -314,6 +328,7 @@
 
 .catalogue__textfaving {
   @include fonts($ff: 'Roboto', $fw: 900, $fs: 26px);
+
   @include tablet {
     @include fonts($ff: 'Roboto', $fw: 900, $fs: 28px, $lh: 33px);
     padding-top: 20px;
