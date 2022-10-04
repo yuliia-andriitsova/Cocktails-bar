@@ -173,7 +173,10 @@ function openModalIng(event) {
 }
 
 function toggleModals(e) {
-  if (e.target.classList.contains('open-modal-button')) {
+  if (
+    e.target.classList.contains('open-modal-button') ||
+    e.target.classList.contains('modal-first__icon-close')
+  ) {
     document.body.classList.toggle('overflow');
     refsModal.modal.classList.toggle('is-hidden');
   }
