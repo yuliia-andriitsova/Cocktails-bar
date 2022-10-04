@@ -138,10 +138,11 @@ async function getSearchCocktailById(id) {
 
   const [resp] = r;
   refsModal.modalPatt.insertAdjacentHTML('beforeend', modalCoctails(resp));
-  const closeModalBtn = document.querySelector('[data-modal-close]');
+
+  modalClose();
+
   searchIngredientInModal();
 
-  closeModalBtn.addEventListener('click', toggleModals);
   const nameIngredient = document.querySelector('.modal-first__list');
   nameIngredient.addEventListener('click', openModalIng);
 }
@@ -171,6 +172,35 @@ function modalCocktails(e) {
   refsModal.modalPatt.innerHTML = '';
 }
 
+function modalClose() {
+  const closeModalCoctail = document.querySelector('.modal-first__icon-close');
+  const modalCoctail = document.querySelector('.backdrop');
+  closeModalCoctail.addEventListener('click', closeModalCoctailOnClick);
+  modalCoctail.addEventListener('click', closeModalCoctailOnClick);
+}
+
+function closeModalCoctailOnClick(e) {
+  if (e.target.classList.contains('exp')) {
+    document.querySelector('.backdrop').classList.add('is-hidden');
+    document.body.classList.remove('overflow');
+  } else {
+    return;
+  }
+}
+
+function toggleModals(e) {
+  if (
+    e.target.classList.contains('open-modal-button') ||
+    e.target.classList.contains('backdrop') ||
+    e.target.classList.contains('modal-first__icon-close')
+  ) {
+    document.body.classList.toggle('overflow');
+    refsModal.modal.classList.toggle('is-hidden');
+  }
+}
+
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
 //  ----------Іванка---------------
 function openModalIng(event) {
   if (event.target.classList.contains('modal-first__item')) {
@@ -195,18 +225,6 @@ async function getSearchIngredientByName(name) {
   closeIngredient();
 }
 
-function toggleModals(e) {
-  if (
-    e.target.classList.contains('open-modal-button') ||
-    e.target.classList.contains('modal-first__icon-close')
-  ) {
-    document.body.classList.toggle('overflow');
-    refsModal.modal.classList.toggle('is-hidden');
-  }
-}
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-// -----Іванка
 function closeIngredient() {
   const closeModalIngred = document.querySelector('.campari-btn__close');
   const modalIngred = document.querySelector('.backdrop-campari');
@@ -225,4 +243,5 @@ function closeOnClick(event) {
   }
   refsModal.modalModalIngredientInfo.innerHTML = '';
 }
+
 // -----Іванка----
