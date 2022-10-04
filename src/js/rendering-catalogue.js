@@ -23,6 +23,23 @@ export class getApiData {
     }
   }
 
+  async getParsedApiDataIngredient() {
+    const params = {
+      url: `https://www.thecocktaildb.com/api/json/v1/1/${this.param}.php`,
+      [this.searchKey]: `${this.value}`,
+    };
+
+    try {
+      const response = await axios.get(params.url, { params });
+      const data = response.data.ingredients;
+      const [result] = data;
+
+      return result;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   async getParsedApiDataRandom() {
     const params = {
       url: `https://www.thecocktaildb.com/api/json/v1/1/random.php

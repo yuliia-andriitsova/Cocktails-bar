@@ -258,6 +258,7 @@
 
   @include tablet {
     @include fonts($ff: 'Roboto', $fw: 900, $fs: 28px, $lh: 33px);
+    height: 75px;
     padding-top: 20px;
   }
 
