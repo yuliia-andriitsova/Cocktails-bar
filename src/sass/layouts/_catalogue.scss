@@ -1,12 +1,12 @@
 .modal-first {
   position: absolute;
-  overflow: hidden;
+  // overflow: hidden;
 
   z-index: 2;
 
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
   min-height: auto;
 
@@ -122,11 +122,18 @@
 
     color: $colorFontTertiary;
 
+    transition: 0.5s;
+
     &:before {
       content: '\2736';
       margin-right: 0.5em;
       color: #000917;
     }
+  }
+
+  &__item:hover {
+    color: $colorFontPrimary;
+    cursor: pointer;
   }
 
   &__button {
@@ -161,12 +168,23 @@
     top: 16px;
     right: 16px;
 
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+
     border-radius: 50%;
+
+    transition: 0.5s;
 
     @include tablet {
       top: 12px;
       right: 12px;
     }
+  }
+
+  &__icon-close:hover {
+    fill: $colorFontPrimary;
   }
 
   &__instractions {
@@ -317,16 +335,6 @@
   }
 }
 
-.overflow {
-  overflow: hidden;
-}
-
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .backdrop {
   z-index: 1;
 
@@ -341,4 +349,18 @@
 
   transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 750ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal-first {
+  transform: translate(-50%, -50%) scale(0.2);
+}
+
+.overflow {
+  overflow: hidden;
 }
