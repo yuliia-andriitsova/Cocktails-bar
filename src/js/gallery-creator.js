@@ -120,9 +120,10 @@ async function getSearchCocktailById(id) {
 let markupIngredients = modalIngredients();
 
 function modalCocktails(e) {
-  const getId = Number(e.target.offsetParent.attributes[0].value);
+  const getId = e.target.offsetParent.attributes[0].value;
 
   getSearchCocktailById(getId);
+  refsModal.modalPatt.innerHTML = '';
 }
 
 // function CreateModal(e) {
@@ -146,10 +147,10 @@ function modalCocktails(e) {
 //   }
 // }
 
-function toggleModals() {
-  document.body.classList.toggle('overflow');
-  refsModal.modal.classList.toggle('is-hidden');
-}
+// function toggleModals() {
+//   document.body.classList.toggle('overflow');
+//   refsModal.modal.classList.toggle('is-hidden');
+// }
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 //  ----------Іванка---------------
@@ -171,9 +172,11 @@ function openModalIng(event) {
   }
 }
 
-function toggleModals() {
-  document.body.classList.toggle('overflow');
-  refsModal.modal.classList.toggle('is-hidden');
+function toggleModals(e) {
+  if (e.target.classList.contains('open-modal-button')) {
+    document.body.classList.toggle('overflow');
+    refsModal.modal.classList.toggle('is-hidden');
+  }
 }
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
