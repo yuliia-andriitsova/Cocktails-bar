@@ -82,26 +82,37 @@ function ifNoFindAnyCocktail(r) {
 
 function refactoringCocktailsArray(elements) {
   return elements.map(el => {
-    let arr = [];
-    // let rra = [];
-    console.log(el);
+    let ing = [];
+    let dose = [];
+    let doseInt = [];
 
     for (let key of Object.keys(el)) {
       for (let i = 1; i < 15; i += 1) {
         if (key === `strIngredient${i}` && el[key] !== null) {
-          arr.push(el[key]);
-          el.strIngredient = arr;
+          ing.push(el[key]);
+          el.strIngredient = ing;
         }
       }
     }
-    // for (let key of Object.keys(el)) {
-    //   for (let i = 1; i < 15; i += 1) {
-    //     if (key === `strMeasure${i}` && el[key] !== null) {
-    //       arr.push(el[key]);
-    //       el.strMeasure = rra;
-    //     }
-    //   }
-    // }
+    for (let key of Object.keys(el)) {
+      for (let i = 1; i < 15; i += 1) {
+        if (key === `strMeasure${i}` && el[key] !== null) {
+          dose.push(el[key]);
+          el.strMeasure = dose;
+        }
+      }
+    }
+    for (let i = 0; i < ing.length; i += 1) {
+      if (dose[i] !== undefined) {
+        let combi = `${dose[i]} ${ing[i]}`;
+        doseInt.push(combi);
+        el.strDoseIng = doseInt;
+      } else {
+        let combi = `${ing[i]}`;
+        doseInt.push(combi);
+        el.strDoseIng = doseInt;
+      }
+    }
   });
 }
 
@@ -124,7 +135,7 @@ async function getSearchCocktailById(id) {
   getClassApiData.param = 'lookup';
   const r = await getClassApiData.getParsedApiData();
   refactoringCocktailsArray(r);
-  console.log(r);
+
   const [resp] = r;
   refsModal.modalPatt.insertAdjacentHTML('beforeend', modalCoctails(resp));
   const closeModalBtn = document.querySelector('[data-modal-close]');
@@ -141,6 +152,7 @@ function searchIngredientInModal() {
 
   function onClickModalListItems(e) {
     cocktailIngredientList.ingredient = e.target.textContent;
+    console.log(cocktailIngredientList.ingredient);
   }
 }
 
@@ -204,6 +216,6 @@ function closeOnClick(event) {
   } else {
     return;
   }
-    refsModal.modalModalIngredientInfo.innerHTML = '';
+  refsModal.modalModalIngredientInfo.innerHTML = '';
 }
 // -----Іванка----
