@@ -83,6 +83,8 @@ function ifNoFindAnyCocktail(r) {
 function refactoringCocktailsArray(elements) {
   return elements.map(el => {
     let arr = [];
+    // let rra = [];
+    console.log(el);
 
     for (let key of Object.keys(el)) {
       for (let i = 1; i < 15; i += 1) {
@@ -92,6 +94,14 @@ function refactoringCocktailsArray(elements) {
         }
       }
     }
+    // for (let key of Object.keys(el)) {
+    //   for (let i = 1; i < 15; i += 1) {
+    //     if (key === `strMeasure${i}` && el[key] !== null) {
+    //       arr.push(el[key]);
+    //       el.strMeasure = rra;
+    //     }
+    //   }
+    // }
   });
 }
 
@@ -114,6 +124,7 @@ async function getSearchCocktailById(id) {
   getClassApiData.param = 'lookup';
   const r = await getClassApiData.getParsedApiData();
   refactoringCocktailsArray(r);
+  console.log(r);
   const [resp] = r;
   refsModal.modalPatt.insertAdjacentHTML('beforeend', modalCoctails(resp));
   const closeModalBtn = document.querySelector('[data-modal-close]');
