@@ -150,13 +150,6 @@ function openModalIng(event) {
     getSearchIngredientByName(cocktailIngredientList.ingredient);
 
     modalIngred.classList.remove('is-hidden-campari');
-
-    // const modalIngredMarkup = document.querySelector('.backdrop-campari');
-
-    // modalIngredMarkup.insertAdjacentHTML('beforeend', markupIngredients);
-    // const closeModalIngred = document.querySelector('.campari-btn__close');
-    // closeModalIngred.addEventListener('click', closeOnClick);
-    // modalIngred.addEventListener('click', closeOnClick);
   }
 }
 
@@ -169,6 +162,7 @@ async function getSearchIngredientByName(name) {
     'beforeend',
     modalIngredients(r)
   );
+  closeIngredient();
 }
 
 function toggleModals(e) {
@@ -183,14 +177,22 @@ function toggleModals(e) {
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 // -----Іванка
-// function closeOnClick(event) {
-//   if (event.target.classList.contains('red')) {
-//     document
-//       .querySelector('.backdrop-campari')
-//       .classList.add('is-hidden-campari');
-//     document.body.classList.remove('overflow-campari');
-//   } else {
-//     return;
-//   }
-// }
+function closeIngredient() {
+  const closeModalIngred = document.querySelector('.campari-btn__close');
+  const modalIngred = document.querySelector('.backdrop-campari');
+  closeModalIngred.addEventListener('click', closeOnClick);
+  modalIngred.addEventListener('click', closeOnClick);
+}
+
+function closeOnClick(event) {
+  if (event.target.classList.contains('red')) {
+    document
+      .querySelector('.backdrop-campari')
+      .classList.add('is-hidden-campari');
+    document.body.classList.remove('overflow-campari');
+  } else {
+    return;
+  }
+    refsModal.modalModalIngredientInfo.innerHTML = '';
+}
 // -----Іванка----
