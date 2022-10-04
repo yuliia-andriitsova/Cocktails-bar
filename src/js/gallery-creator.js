@@ -145,10 +145,10 @@ function modalCocktails(e) {
 //   }
 // }
 
-function toggleModals() {
-  document.body.classList.toggle('overflow');
-  refsModal.modal.classList.toggle('is-hidden');
-}
+// function toggleModals() {
+//   document.body.classList.toggle('overflow');
+//   refsModal.modal.classList.toggle('is-hidden');
+// }
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 //  ----------Іванка---------------
