@@ -113,9 +113,10 @@ async function getSearchCocktailById(id) {
   refactoringCocktailsArray(r);
   const [resp] = r;
   refsModal.modalPatt.insertAdjacentHTML('beforeend', modalCoctails(resp));
+  const closeModalBtn = document.querySelector('[data-modal-close]');
+  closeModalBtn.addEventListener('click', toggleModals);
 }
 
-// let markup = modalCoctails();
 let markupIngredients = modalIngredients();
 
 function modalCocktails(e) {
