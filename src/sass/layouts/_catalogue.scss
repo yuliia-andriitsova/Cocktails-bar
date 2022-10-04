@@ -122,6 +122,8 @@
 
     color: $colorFontTertiary;
 
+    transition: 0.5s;
+
     &:before {
       content: '\2736';
       margin-right: 0.5em;
@@ -130,7 +132,7 @@
   }
 
   &__item:hover {
-    color: #fd5103;
+    color: $colorFontPrimary;
     cursor: pointer;
   }
 
@@ -166,9 +168,14 @@
     top: 16px;
     right: 16px;
 
+    width: 32px;
+    height: 32px;
+
     cursor: pointer;
 
     border-radius: 50%;
+
+    transition: 0.5s;
 
     @include tablet {
       top: 12px;
@@ -177,7 +184,7 @@
   }
 
   &__icon-close:hover {
-    fill: #fd5103;
+    fill: $colorFontPrimary;
   }
 
   &__instractions {
