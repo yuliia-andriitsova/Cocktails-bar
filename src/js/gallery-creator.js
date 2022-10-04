@@ -122,6 +122,7 @@ function modalCocktails(e) {
   const getId = e.target.offsetParent.attributes[0].value;
 
   getSearchCocktailById(getId);
+  refsModal.modalPatt.innerHTML = '';
 }
 
 // function CreateModal(e) {
@@ -170,9 +171,11 @@ function openModalIng(event) {
   }
 }
 
-function toggleModals() {
-  document.body.classList.toggle('overflow');
-  refsModal.modal.classList.toggle('is-hidden');
+function toggleModals(e) {
+  if (e.target.classList.contains('open-modal-button')) {
+    document.body.classList.toggle('overflow');
+    refsModal.modal.classList.toggle('is-hidden');
+  }
 }
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
