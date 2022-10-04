@@ -326,3 +326,13 @@
   transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 750ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal-first {
+  transform: translate(-50%, -50%) scale(0.2);
+}
