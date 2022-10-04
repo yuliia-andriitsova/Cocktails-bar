@@ -1,7 +1,7 @@
 import cocktailCard from '../template/cocktail-card.hbs';
 import noFindAnyCoctail from '../template/not-found-cocktails.hbs';
 import modalCoctails from '../template/modal-cocktails.hbs';
-import modalIngredients from '../template/favorite-ingredients.hbs';
+import modalIngredients from '../template/modal-ingred.hbs';
 import { getApiData } from './rendering-catalogue';
 import { checkingScreenWidth } from './cheking-screen-width';
 
@@ -119,6 +119,10 @@ async function getSearchCocktailById(id) {
   // const modalItem = document.querySelector('.modal-first__item');
 
   closeModalBtn.addEventListener('click', toggleModals);
+  const nameIngredient = document.querySelector('.modal-first__list');
+  nameIngredient.addEventListener('click', openModalIng);
+  console.log(nameIngredient)
+
 }
 
 function searchIngredientInModal() {
@@ -131,7 +135,6 @@ function searchIngredientInModal() {
   }
 }
 
-let markupIngredients = modalIngredients();
 
 function modalCocktails(e) {
   const getId = e.target.offsetParent.attributes[0].value;
@@ -141,21 +144,19 @@ function modalCocktails(e) {
 }
 
 //  ----------Іванка---------------
-let nameIngredient = '';
-
 function openModalIng(event) {
   if (event.target.classList.contains('modal-first__item')) {
     document.body.classList.add('overflow-campari');
-    nameIngredient = document.querySelector('.modal-first__list').textContent;
+        const modalIngred = document.querySelector('.backdrop-campari');
 
-    const modalIngredMarkup = document.querySelector('.backdrop-campari');
-
-    modalIngredMarkup.insertAdjacentHTML('beforeend', markupIngredients);
-    const closeModalIngred = document.querySelector('.campari-btn__close');
-    const modalIngred = document.querySelector('.backdrop-campari');
     modalIngred.classList.remove('is-hidden-campari');
-    closeModalIngred.addEventListener('click', closeOnClick);
-    modalIngred.addEventListener('click', closeOnClick);
+    console.log(modalIngred)
+    // const modalIngredMarkup = document.querySelector('.backdrop-campari');
+
+    // modalIngredMarkup.insertAdjacentHTML('beforeend', markupIngredients);
+    // const closeModalIngred = document.querySelector('.campari-btn__close');
+    // closeModalIngred.addEventListener('click', closeOnClick);
+    // modalIngred.addEventListener('click', closeOnClick);
   }
 }
 
@@ -171,14 +172,14 @@ function toggleModals(e) {
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑Sergey↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 // -----Іванка
-function closeOnClick(event) {
-  if (event.target.classList.contains('red')) {
-    document
-      .querySelector('.backdrop-campari')
-      .classList.add('is-hidden-campari');
-    document.body.classList.remove('overflow-campari');
-  } else {
-    return;
-  }
-}
+// function closeOnClick(event) {
+//   if (event.target.classList.contains('red')) {
+//     document
+//       .querySelector('.backdrop-campari')
+//       .classList.add('is-hidden-campari');
+//     document.body.classList.remove('overflow-campari');
+//   } else {
+//     return;
+//   }
+// }
 // -----Іванка----
