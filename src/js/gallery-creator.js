@@ -119,7 +119,7 @@ async function getSearchCocktailById(id) {
 let markupIngredients = modalIngredients();
 
 function modalCocktails(e) {
-  const getId = Number(e.target.offsetParent.attributes[0].value);
+  const getId = e.target.offsetParent.attributes[0].value;
 
   getSearchCocktailById(getId);
 }
