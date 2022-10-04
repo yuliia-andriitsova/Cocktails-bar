@@ -13,6 +13,8 @@ const refsGallery = {
 
 const getClassApiData = new getApiData();
 
+const cocktailIngredientList = {};
+
 refsGallery.formHeader.addEventListener('submit', getSearchCocktailByName);
 
 function getSearchCocktailByName(e) {
@@ -103,6 +105,7 @@ function resetContent() {
 const refsModal = {
   modal: document.querySelector('[data-modal]'),
   modalPatt: document.querySelector('.modal-first'),
+  modalModalIngredientInfo: document.querySelector('.modal-campari'),
 };
 
 async function getSearchCocktailById(id) {
@@ -116,13 +119,9 @@ async function getSearchCocktailById(id) {
   const closeModalBtn = document.querySelector('[data-modal-close]');
   searchIngredientInModal();
 
-  // const modalItem = document.querySelector('.modal-first__item');
-
   closeModalBtn.addEventListener('click', toggleModals);
   const nameIngredient = document.querySelector('.modal-first__list');
   nameIngredient.addEventListener('click', openModalIng);
-  console.log(nameIngredient)
-
 }
 
 function searchIngredientInModal() {
@@ -130,11 +129,9 @@ function searchIngredientInModal() {
   modalListItems.addEventListener('click', onClickModalListItems);
 
   function onClickModalListItems(e) {
-    const getListName = e.target.textContent;
-    console.dir(getListName);
+    cocktailIngredientList.ingredient = e.target.textContent;
   }
 }
-
 
 function modalCocktails(e) {
   const getId = e.target.offsetParent.attributes[0].value;
@@ -147,10 +144,13 @@ function modalCocktails(e) {
 function openModalIng(event) {
   if (event.target.classList.contains('modal-first__item')) {
     document.body.classList.add('overflow-campari');
-        const modalIngred = document.querySelector('.backdrop-campari');
+    const modalIngred = document.querySelector('.backdrop-campari');
+
+    // cocktailIngredientList
+    getSearchIngredientByName(cocktailIngredientList.ingredient);
 
     modalIngred.classList.remove('is-hidden-campari');
-    console.log(modalIngred)
+
     // const modalIngredMarkup = document.querySelector('.backdrop-campari');
 
     // modalIngredMarkup.insertAdjacentHTML('beforeend', markupIngredients);
@@ -158,6 +158,18 @@ function openModalIng(event) {
     // closeModalIngred.addEventListener('click', closeOnClick);
     // modalIngred.addEventListener('click', closeOnClick);
   }
+}
+
+async function getSearchIngredientByName(name) {
+  getClassApiData.key = 'i';
+  getClassApiData.value = name;
+  getClassApiData.param = 'search';
+  const r = await getClassApiData.getParsedApiDataIngredient();
+  console.log(r);
+  refsModal.modalModalIngredientInfo.insertAdjacentHTML(
+    'beforeend',
+    modalIngredients(r)
+  );
 }
 
 function toggleModals(e) {
