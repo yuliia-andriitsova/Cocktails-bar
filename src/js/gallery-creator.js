@@ -151,8 +151,16 @@ function searchIngredientInModal() {
   modalListItems.addEventListener('click', onClickModalListItems);
 
   function onClickModalListItems(e) {
-    cocktailIngredientList.ingredient = e.target.textContent;
-    console.log(cocktailIngredientList.ingredient);
+    cocktailIngredientList.ingredient = startsWithCapital(e.target.textContent);
+  }
+}
+
+function startsWithCapital(string) {
+  for (let i = 0; i < string.length; i += 1) {
+    let upperLetter = /[A-Z]/.test(string.charAt(i));
+    if (upperLetter) {
+      return string.slice(i, string.length);
+    }
   }
 }
 
@@ -169,7 +177,6 @@ function openModalIng(event) {
     document.body.classList.add('overflow-campari');
     const modalIngred = document.querySelector('.backdrop-campari');
 
-    // cocktailIngredientList
     getSearchIngredientByName(cocktailIngredientList.ingredient);
 
     modalIngred.classList.remove('is-hidden-campari');
