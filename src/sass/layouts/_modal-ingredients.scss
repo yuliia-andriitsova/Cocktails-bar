@@ -44,7 +44,23 @@
 
   @include tablet {
     min-width: 715px;
+    padding: 0;
+  }
+}
+
+.top-container {
+  @include tablet {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.bot-container {
+  @include tablet {
     padding-bottom: 28px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
 }
 
@@ -144,7 +160,6 @@
     top: 12px;
     right: 12px;
   }
-
 }
 
 .campari-icon__close {
@@ -158,15 +173,15 @@
 }
 
 .campari-btn__add {
+  width: auto;
   display: flex;
-  justify-content: start;
+  justify-content: center;
 
   margin-right: auto;
 
   @include tablet {
     margin-right: 0;
     margin-left: auto;
-
   }
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
