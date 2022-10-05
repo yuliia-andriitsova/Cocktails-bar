@@ -241,7 +241,12 @@ function closeOnClick(event) {
   } else {
     return;
   }
-  refsModal.modalModalIngredientInfo.innerHTML = '';
+  reserIngredientsMarkup();
 }
 
+function reserIngredientsMarkup() {
+  setTimeout(() => {
+    refsModal.modalModalIngredientInfo.innerHTML = '';
+  }, 1001);
+}
 // -----Іванка----

@@ -2,13 +2,17 @@
     <img src="http://localhost:1234/close.svg" class='campari-icon__close red' width='32px' height='32px' data-modal-close>
     </img>
 </button>
-<div class="campari-titles__border">
+
     <h2 class="campari-title">{{strIngredient}}</h2>
+    
     <h3 class="campari-title__min">{{strType}}</h3>
-</div>
-<div class="campari-text__container">
-    <p class="campari-text">{{strDescription}}
+
+    <div class="campari-line"></div>
+
+    <p class="campari-text">
+        {{strDescription}}
     </p>
+    
     <ul class="list campari-list">
         <li class="campari-list__item">
             <span class="campari-list__itemb">✶ </span>Type: {{strType}}
@@ -18,7 +22,7 @@
             {{strABV}}%
         </li>
     </ul>
-</div>
+
 <button type="button" class="btn__orange campari-btn__add">
     Add to favorite
 </button>
