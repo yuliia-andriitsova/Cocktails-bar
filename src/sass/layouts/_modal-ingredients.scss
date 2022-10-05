@@ -1,13 +1,13 @@
 .backdrop-campari {
   position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop-campari.is-hidden-campari {
@@ -50,8 +50,8 @@
   @include tablet {
     border-bottom: 1px solid $colorFontPrimary;
     padding-left: 28px;
-      padding-right: 28px;
-      padding-bottom: 40px;
+    padding-right: 28px;
+    padding-bottom: 40px;
   }
 }
 
@@ -107,39 +107,39 @@
   height: 30px;
   border: none;
   padding: 0;
-  // display: flex; 
-  // justify-content: center; 
-  // align-items: center; 
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   background-color: $colorBackgroundDay;
 }
 
 .campari-icon__close {
   display: block;
-  // fill: $colorFontSecondary; 
+  fill: $colorFontSecondary;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     cursor: pointer;
   }
 }
-.campari-btn__close:hover {
-  border: 1px solid $colorFontPrimary;
-}
+// .campari-btn__close:hover {
+//   border: 1px solid $colorFontPrimary;
+// }
 
 .campari-btn__add {
   display: flex;
-    justify-content: start;
-    margin-top: 12px;
-    margin-left: 16px;
-    margin-right: auto;
-    margin-bottom: 40px;
+  justify-content: start;
+  margin-top: 12px;
+  margin-left: 16px;
+  margin-right: auto;
+  margin-bottom: 40px;
   @include tablet {
     width: max-content;
     display: flex;
-      justify-content: end;
-      margin-left: auto;
-      margin-right: 28px;
-      margin-bottom: 28px;
+    justify-content: end;
+    margin-left: auto;
+    margin-right: 28px;
+    margin-bottom: 28px;
   }
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,24 +1,36 @@
-<button type="button" class="campari-btn__close red">
-    <img src="http://localhost:1234/close.svg" class='campari-icon__close red' width='32px' height='32px' data-modal-close>
-    </img>
+{{!-- <button type='button' class='campari-btn__close red'> --}}
+  {{! <img src="http://localhost:1234/close.svg" class='campari-icon__close red' width='32px' height='32px' data-modal-close>
+    </img> }}
+  {{!-- <svg class='campari-btn__close red modal-first__icon-close exp' data-modal-close>
+    <use
+      href='http://localhost:1234/all_svg.svg#icon-clarity_close-line-black'
+    ></use>
+  </svg> --}}
+  <svg class='campari-btn__close red modal-first__icon-close exp' data-modal-close>
+    <use
+      href='https://vokoloven.github.io/hardcore-bar/all_svg.svg#icon-clarity_close-line-black'
+    ></use>
+  </svg>
+  
 </button>
-<div class="campari-titles__border">
-    <h2 class="campari-title">{{strIngredient}}</h2>
-    <h3 class="campari-title__min">{{strType}}</h3>
+<div class='campari-titles__border'>
+  <h2 class='campari-title'>{{strIngredient}}</h2>
+  <h3 class='campari-title__min'>{{strType}}</h3>
 </div>
-<div class="campari-text__container">
-    <p class="campari-text">{{strDescription}}
-    </p>
-    <ul class="list campari-list">
-        <li class="campari-list__item">
-            <span class="campari-list__itemb">✶ </span>Type: {{strType}}
-        </li>
-        <li class="campari-list__item">
-            <span class="campari-list__itemb">✶ </span>Alcohol by volume:
-            {{strABV}}%
-        </li>
-    </ul>
+<div class='campari-text__container'>
+  <p class='campari-text'>{{strDescription}}
+  </p>
+  <ul class='list campari-list'>
+    <li class='campari-list__item'>
+      <span class='campari-list__itemb'>✶ </span>Type:
+      {{strType}}
+    </li>
+    <li class='campari-list__item'>
+      <span class='campari-list__itemb'>✶ </span>Alcohol by volume:
+      {{strABV}}%
+    </li>
+  </ul>
 </div>
-<button type="button" class="btn__orange campari-btn__add">
-    Add to favorite
+<button type='button' class='btn__orange campari-btn__add'>
+  Add to favorite
 </button>
