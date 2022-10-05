@@ -1,5 +1,11 @@
 // const { data } = require('infinite-scroll');
 
+const testToHome = document.querySelector(
+  '#header > div > div.header__menu.header__menu--is-hidden > nav > ul > li.header__nav-item.header__nav-item--menu'
+);
+// console.log(testToHome);
+
+const headerHomeBtn = document.querySelector('.header__nav-item');
 const catalogueListFavoriteCocktails = document.querySelector(
   'body > main > div.favorite-cocktails-page > section > div > ul'
 );
@@ -12,7 +18,11 @@ const catalogueListRef = document.querySelector('.catalogue__list');
 if (catalogueListRef) {
   catalogueListRef.addEventListener('mousedown', onClickBtn);
 }
+// headerHomeBtn.addEventListener('click', onHomeBtnClickEvent);
 
+// function onHomeBtnClickEvent() {
+//   console.log('knock');
+// }
 let randomCardsGallery = '';
 let htmlCoctailCard = '';
 
@@ -24,12 +34,14 @@ function onClickBtn(e) {
     for (let i = 0; i < randomCardsGallery.length; i++) {
       BtnToFavoriteCocktails = // Визначаємо де кнопка
         randomCardsGallery[i].children[1].children[1].children[1];
+      // console.log(BtnToFavoriteCocktails);
+      // console.log(randomCardsGallery[i]);
 
       BtnToFavoriteCocktails.addEventListener('click', allCocktailsMap); // Слухач по кліку
-
       e.target.childNodes[0].data = 'Remove'; // При натисканні на кнопку заміняємо слова
 
       function allCocktailsMap() {
+        console.log('poly4ilocb');
         // Серіалізуємо в стрінгу
         htmlCoctailCard = new XMLSerializer().serializeToString(
           randomCardsGallery[i] // Масив об'єктів
@@ -54,6 +66,12 @@ function onClickBtn(e) {
       }
     }
   }
+
+  if (favoriteCocktailsEl.includes(htmlCoctailCard)) {
+    const ops = setTimeout(() => {
+      e.target.childNodes[0].data = ''; // При натисканні на кнопку заміняємо слова
+    }, 500);
+  }
 }
 
 //  Зберігаєм елементи в локальному сховищі при загрузці сторінки
@@ -65,6 +83,67 @@ catalogueListFavoriteCocktails.insertAdjacentHTML(
   parsedCocktailsDataLS
 );
 
+// const btnLearnMore = document.querySelector(
+//   'body > main > div.main-page > section.catalogue.container > div > ul'
+// );
+
+// btnLearnMore.addEventListener('click', onClickOfLearnMoreBtn);
+
+// function onClickOfLearnMoreBtn() {
+//   console.log(btnLearnMore);
+// }
+
+//  Отримуємо дані карточки ---------------------------------------------------------
+
+// if (catalogueListRef) {
+//   catalogueListRef.addEventListener('mousedown', onClickToAddFromLearnMore);
+// }
+// let learnMoreCocktailCard = '';
+// function onClickToAddFromLearnMore(e) {
+//   if (e.target.classList.contains('btn__orange')) {
+//     console.log(e.target.offsetParent)
+//     learnMoreCocktailCard = e.target.offsetParent.outerHTML;
+//   }
+// console.dir(learnMoreCocktailCard)
+// //  Отримуємо дані карточки ---------------------------------------------------------
+
+// const backdropModal = document.querySelector(
+//   'body > main > div.main-page > section.catalogue.container > div > div.backdrop.is-hidden'
+// );
+// // console.dir(backdropModal);
+
+// if (backdropModal) {
+//   backdropModal.addEventListener('click', onClickModalBtn);
+// }
+
+// function onClickModalBtn(e) {
+//   console.log('hello');
+//   if (e.target.classList.contains('modal-first__button')) {
+//     const modalBackdrop = document.querySelector(
+//       'body > main > div.main-page > section.catalogue.container > div > div.backdrop > div'
+//     );
+//     const modalBtn = modalBackdrop.children[4]; // Отримав доступ до кнопки
+
+//     // let arrayOfLearnMoreCard = [];
+//     if (!favoriteCocktailsEl.includes(learnMoreCocktailCard)) {
+//       favoriteCocktailsEl.push(learnMoreCocktailCard); // Пушим його в масив
+//       favoriteCocktailsEl.join('');
+
+//       // Добавляєм його в розмітку
+//       catalogueListFavoriteCocktails.insertAdjacentHTML(
+//         //
+//         'beforeend',
+//         learnMoreCocktailCard
+//       );
+//       localStorage.setItem(
+//         'savedCocktails',
+//         JSON.stringify(favoriteCocktailsEl)
+//       );
+//     }
+//   }
+// }
+// ----------------------------------------------------------------------------------------------
+
 //                          ----- Remove Button -----
 
 if (catalogueListFavoriteCocktails) {
@@ -74,7 +153,9 @@ let htmlRemoveCoctailCard = '';
 
 function onRemoveItemBtn(e) {
   // Отримуємо доступ до картки яку необхідно видалити
+  console.log(e.target);
   const cardToRemove = e.target.parentElement.parentElement.parentElement;
+  console.log(cardToRemove);
 
   if (e.target.classList.contains('btn__transparent')) {
     // Серіалізація до стрінги
@@ -97,5 +178,7 @@ function onRemoveItemBtn(e) {
       );
     }
   }
-  e.target.childNodes[0].data = 'Add to'; // При натисканні на кнопку заміняємо слова
+  // e.target.childNodes[0].data = 'Add to'; // При натисканні на кнопку заміняємо слова
 }
+
+//----------------------------------------------------------------------------------------------

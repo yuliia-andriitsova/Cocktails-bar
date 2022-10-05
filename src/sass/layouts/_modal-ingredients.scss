@@ -144,6 +144,7 @@
     top: 12px;
     right: 12px;
   }
+
 }
 
 .campari-icon__close {
@@ -155,9 +156,6 @@
     cursor: pointer;
   }
 }
-.campari-btn__close:hover {
-  // border: 1px solid $colorFontPrimary;
-}
 
 .campari-btn__add {
   display: flex;
@@ -168,6 +166,7 @@
   @include tablet {
     margin-right: 0;
     margin-left: auto;
+
   }
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
