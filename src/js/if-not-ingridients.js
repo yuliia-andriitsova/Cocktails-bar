@@ -22,7 +22,7 @@ onClickFavoriteIngridientsBtnNav.addEventListener(
 );
 
 function onClickEmptyListOnFavoriteIngridients() {
-  console.log('hi');
+  // console.log('hi');
   if (ifNotIngridients.children.length === 0) {
     ifNotIngridientsText.style.display = 'none';
     ifNotIngridients.insertAdjacentHTML(

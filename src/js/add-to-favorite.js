@@ -153,9 +153,9 @@ let htmlRemoveCoctailCard = '';
 
 function onRemoveItemBtn(e) {
   // Отримуємо доступ до картки яку необхідно видалити
-  console.log(e.target);
+  // console.log(e.target);
   const cardToRemove = e.target.parentElement.parentElement.parentElement;
-  console.log(cardToRemove);
+  // console.log(cardToRemove);
 
   if (e.target.classList.contains('btn__transparent')) {
     // Серіалізація до стрінги
